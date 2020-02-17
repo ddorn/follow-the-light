@@ -3,6 +3,7 @@
 in vec2 vert;
 out vec3 f_color;
 out vec2 bulb_pos;
+out vec2 tex_coord;
 
 uniform float time;
 
@@ -24,5 +25,6 @@ void main() {
 
 //    f_color = (vec3(random(vert)));
     f_color = hsv2rgb(vec3(random(vert, time / 5.), 1.0, 1.0));
+    tex_coord = vert / 2.0 + 0.5;
     gl_Position = vec4(vert, 0.0, 1.0);
 }
