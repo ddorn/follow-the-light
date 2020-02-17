@@ -5,49 +5,34 @@ from time import time
 import pygame
 import moderngl
 import numpy as np
-
+import moderngl_window
 from src import shaders, shapes
 from src.colors import random_color
 
 
-def main():
-    print("Follow the light !")
+class Window(moderngl_window.WindowConfig):
+    gl_version = (3, 3)
+    window_size = (800, 500)
 
-    pygame.init()
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
-    display = pygame.display.set_mode((800, 500), pygame.OPENGL)
-    ctx = moderngl.create_context()
-    prog = shaders.load_shader("simple", ctx)
+        print("Follow the light !")
 
-    vertices, indices = shapes.get_rect(-1, -1, 2, 2)
-    colors = np.array([c for _ in vertices for c in random_color()])
 
-    colors = colors.reshape((4, 3))
-    print(vertices, colors)
-    vertices = np.append(vertices, colors, axis=1)
+        self.prog = shaders.load_shader("simple", self.ctx)
 
-    vbo = ctx.buffer(vertices.astype('f4').flatten().tobytes())
-    ibo = ctx.buffer(indices.astype('i4').tobytes())
+        vertices, indices = shapes.get_rect(-1, -1, 2, 2)
 
-    vao = ctx.simple_vertex_array(prog, vbo, 'vert', 'v_color', index_buffer=ibo)
+        vbo = self.ctx.buffer(vertices.astype('f4').flatten().tobytes())
+        ibo = self.ctx.buffer(indices.astype('i4').tobytes())
 
-    print(ctx, ctx.screen, vbo, vao)
+        self.vao = self.ctx.simple_vertex_array(self.prog, vbo, 'vert', index_buffer=ibo)
 
-    clock = pygame.time.Clock()
 
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                return
-
-        ctx.clear(1.0, 1.0, 1.0)
-        vao.render()
-        ctx.finish()
-        pygame.display.flip()
-
-        clock.tick(10000)
-        print('\r', clock.get_fps(), end='', flush=True)
-
+    def render(self, time: float, frame_time: float):
+        self.prog['time'].value = time
+        self.vao.render()
 
 if __name__ == "__main__":
-    main()
+    moderngl_window.run_window_config(Window)

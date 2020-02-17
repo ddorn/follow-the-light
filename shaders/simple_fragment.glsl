@@ -21,5 +21,5 @@ float mandelbrot(vec2 pos) {
 }
 
 void main() {
-    gl_FragColor = vec4(f_color, 1.0) * mandelbrot(bulb_pos);
+    gl_FragColor = vec4(f_color, 1.0) * clamp(0.5 + mandelbrot(bulb_pos), 0.0, 1.0);
 }
