@@ -3,7 +3,6 @@
 in vec2 vert;
 in vec2 tex_coord;
 out vec3 f_color;
-out vec2 bulb_pos;
 out vec2 f_tex_coord;
 
 uniform vec4 rects[10];
@@ -24,11 +23,6 @@ vec3 hsv2rgb(vec3 c)
 }
 
 void main() {
-    bulb_pos = vec2(vert.x*1.5 - 0.5, vert.y * 1.5);
-
-//    f_color = (vec3(random(vert)));
-    f_color = hsv2rgb(vec3(random(vert, time / 5.), 1.0, 1.0));
-
     f_tex_coord = rects[sprite_id].xy + rects[sprite_id].zw * tex_coord;
-    gl_Position = vec4(vert, 0.0, 1.0);
+    gl_Position = vec4(vert.x + 2*fract(time / 8.0), vert.y, 0.0, 1.0);
 }
