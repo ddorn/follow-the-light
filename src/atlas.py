@@ -5,27 +5,27 @@ import enum
 
 RECTS = [
     # x,       y,         w,         h
-    0.0,       0.0,       0.2,       0.5,       
-    0.2,       0.0,       0.2,       0.5,       
-    0.4,       0.0,       0.2,       0.5,       
-    0.6,       0.0,       0.2,       0.5,       
-    0.8,       0.0,       0.2,       0.5,       
-    0.0,       0.5,       0.2,       0.5,       
-    0.2,       0.5,       0.2,       0.5,       
-    0.4,       0.5,       0.2,       0.5,       
-    0.6,       0.5,       0.2,       0.5,       
-    0.8,       0.5,       0.2,       0.5,       
+    0.0,       0.75,      0.25,      0.25,      
+    0.0,       0.5,       0.25,      0.25,      
+    0.25,      0.75,      0.25,      0.25,      
+    0.0,       0.25,      0.25,      0.25,      
+    0.25,      0.5,       0.25,      0.25,      
+    0.5,       0.75,      0.25,      0.25,      
+    0.0,       0.0,       0.25,      0.25,      
+    0.25,      0.25,      0.25,      0.25,      
+    0.5,       0.5,       0.25,      0.25,      
+    0.75,      0.75,      0.25,      0.25,      
 ]
 
 class Sprite(enum.Enum):
-    CLOUD_LONELY = 0,
-    CLOUDS_BG = 1,
-    CLOUDS_MG_1 = 2,
-    CLOUDS_MG_1_LIGHTENED = 3,
-    CLOUDS_MG_2 = 4,
-    CLOUDS_MG_3 = 5,
-    MOUNTAINS = 6,
-    MOUNTAINS_LIGHTENED = 7,
-    SKY = 8,
-    SKY_LIGHTENED = 9
+    BG_LAYER_0_SKY = 0
+    BG_LAYER_0_SKY_LIGHTENED = 1
+    BG_LAYER_1_CLOUDS = 2
+    BG_LAYER_2_CLOUND_LONELY = 3
+    BG_LAYER_3_MOUNTAINS = 4
+    BG_LAYER_3_MOUNTAINS_LIGHTENED = 5
+    BG_LAYER_4_DARK_LOW_CLOUDS = 6
+    BG_LAYER_5_LOW_CLOUDS = 7
+    BG_LAYER_6_LIGHT_CLOUDS = 8
+    BG_LAYER_6_LIGHT_CLOUDS_LIGHTENED = 9
 

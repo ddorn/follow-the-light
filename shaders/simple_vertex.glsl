@@ -2,11 +2,12 @@
 
 in vec2 vert;
 in vec2 tex_coord;
+in int sprite_id;
+
 out vec3 f_color;
 out vec2 f_tex_coord;
 
 uniform vec4 rects[10];
-uniform uint sprite_id;
 uniform float time;
 
 float random(vec2 pos, float t) {
@@ -23,6 +24,9 @@ vec3 hsv2rgb(vec3 c)
 }
 
 void main() {
-    f_tex_coord = rects[sprite_id].xy + rects[sprite_id].zw * tex_coord;
-    gl_Position = vec4(vert.x + 2*fract(time / 8.0), vert.y, 0.0, 1.0);
+    vec2 coord_inverted = rects[sprite_id].xy + rects[sprite_id].zw * tex_coord.xy;
+    f_tex_coord = coord_inverted;
+//    gl_Position = vec4(vert.x + 2*fract(time / 15.0 * float(12 - sprite_id)), vert.y, 0.0, 1.0);
+//    gl_Position = vec4(vert.x + float(sprite_id) / 10.0, vert.y + float(sprite_id) / 13.0, 0.0, 1.0 + time - time);
+    gl_Position = vec4(vert, 0.0, 1.0 + time - time);
 }

@@ -21,8 +21,9 @@ class Sprite(enum.Enum):
 
 def rect(image, w, h):
     frame = image["frame"]
-    r = tuple(frame[x] / (w, h)[i % 2]
-              for i, x in enumerate("x y w h".split()))
+    r = [frame[x] / (w, h)[i % 2]
+              for i, x in enumerate("x y w h".split())]
+    r[1] = 1. - r[1] - r[3]
     r = [f"{x :.7}," for x in r]
     return ("{:<10} "*4).format(*r)
 
@@ -54,7 +55,7 @@ def main():
     buffer_str = buffer_sep.join(buffer)
 
     # enum
-    enum_sep = ",\n" + " " * 4  # one tab
+    enum_sep = "\n" + " " * 4  # one tab
     enum_str = enum_sep.join(
         f"{python_enum_name(name)} = {i}"
         for (i, name) in enumerate(frames)
