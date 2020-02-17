@@ -1,10 +1,13 @@
 #version 330
 
 in vec2 vert;
+in vec2 tex_coord;
 out vec3 f_color;
 out vec2 bulb_pos;
-out vec2 tex_coord;
+out vec2 f_tex_coord;
 
+uniform vec4 rects[10];
+uniform uint sprite_id;
 uniform float time;
 
 float random(vec2 pos, float t) {
@@ -25,6 +28,7 @@ void main() {
 
 //    f_color = (vec3(random(vert)));
     f_color = hsv2rgb(vec3(random(vert, time / 5.), 1.0, 1.0));
-    tex_coord = vert / 2.0 + 0.5;
+
+    f_tex_coord = rects[sprite_id].xy + rects[sprite_id].zw * tex_coord;
     gl_Position = vec4(vert, 0.0, 1.0);
 }

@@ -2,7 +2,7 @@
 
 in vec2 bulb_pos;
 in vec3 f_color;
-in vec2 tex_coord;
+in vec2 f_tex_coord;
 
 uniform sampler2D tex;
 
@@ -25,5 +25,7 @@ float mandelbrot(vec2 pos) {
 }
 
 void main() {
-    gl_FragColor = texture(tex, tex_coord) * vec4(f_color, 1.0) * clamp(0.5 + mandelbrot(bulb_pos), 0.0, 1.0);
+    vec4 co = vec4(f_color, 1.0) * clamp(0.5 + mandelbrot(bulb_pos), 0.0, 1.0);
+    gl_FragColor = texture(tex, f_tex_coord + co.xy - co.xy);
+//    gl_FragColor = vec4(f_tex_coord, co.x, 1.);
 }

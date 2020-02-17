@@ -1,12 +1,16 @@
 import numpy as np
 
 def get_rect(x, y, w, h):
+    pos = [
+        (0, 0),
+        (1, 0),
+        (1, 1),
+        (0, 1),
+        (0.5, 0.5)
+    ]
     vertices = np.array([
-        (x, y),
-        (x + w, y),
-        (x + w, y + h),
-        (x, y + h),
-        (x + w / 2, y + h / 2),
+        (x + a*w, y + b * h, a, b)
+        for a, b in pos
     ], dtype=float)
 
     indices = np.array([
