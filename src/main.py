@@ -12,7 +12,7 @@ from src.atlas import Sprite
 
 class Window(moderngl_window.WindowConfig):
     gl_version = (3, 3)
-    window_size = (800, 500)
+    window_size = (384, 216)
     resource_dir = ASSETS_DIR
     title = "Follow the light"
 
@@ -39,7 +39,7 @@ class Window(moderngl_window.WindowConfig):
         # self.prog['rects'].value = atlas.RECTS
 
         images = [
-            ((i-7.0)/7, sprite.value) for (i, sprite) in
+            ((i+1)/8 - 1.,  sprite.value) for (i, sprite) in
                 enumerate([
                     Sprite.BG_LAYER_0_SKY,
                     Sprite.BG_LAYER_1_CLOUDS,
