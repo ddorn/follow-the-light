@@ -2,13 +2,8 @@
 
 in vec3 vert;
 in vec2 tex_coord;
-in int sprite_id;
-in float z;
 
 out vec2 f_tex_coord;
-out vec4 tex_rect;
-uniform vec4 rects[10];
-uniform float time;
 
 float random(vec2 pos, float t) {
     return fract(sin(dot(pos, vec2(1232.12, 2342.234))) * 21313.4231 + t);
@@ -24,8 +19,7 @@ vec3 hsv2rgb(vec3 c)
 }
 
 void main() {
-    tex_rect = rects[sprite_id];
-    f_tex_coord = vec2(tex_coord.x + time * pow(1.+z, 3.0) / 15., tex_coord.y);
+    f_tex_coord = tex_coord;
 
 //    gl_Position = vec4(vert.x + 2*fract(time / 15.0 * float(12 - sprite_id)), vert.y, 0.0, 1.0);
 //    gl_Position = vec4(vert.x + float(sprite_id) / 10.0, vert.y + float(sprite_id) / 13.0, 0.0, 1.0 + time - time);

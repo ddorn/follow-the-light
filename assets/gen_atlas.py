@@ -9,8 +9,10 @@ TEMPLATE = r"""
 
 import enum
 
+TEX_WIDTH = WW
+TEX_HEIGHT = HH
 RECTS = [
-    # x,       y,         w,         h
+    #   x,     y,     w,     h
     BUFFER
 ]
 
@@ -21,11 +23,8 @@ class Sprite(enum.Enum):
 
 def rect(image, w, h):
     frame = image["frame"]
-    r = [frame[x] / (w, h)[i % 2]
-              for i, x in enumerate("x y w h".split())]
-    r[1] = 1. - r[1] - r[3]
-    r = [f"{x :.7}," for x in r]
-    return ("{:<10} "*4).format(*r)
+    r = [frame[x] for i, x in enumerate("x y w h".split())]
+    return ("{:5}, "*4).format(*r)
 
 
 def python_enum_name(name: str):
@@ -64,7 +63,9 @@ def main():
 
     rust = TEMPLATE \
         .replace("BUFFER", buffer_str) \
-        .replace("ENUM", enum_str)
+        .replace("ENUM", enum_str) \
+        .replace("WW", str(width)) \
+        .replace("HH", str(height))
 
     print(rust)
 

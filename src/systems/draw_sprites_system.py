@@ -7,55 +7,94 @@ import numpy as np
 
 from src import shaders, shapes, atlas
 from src.atlas import Sprite
+from src.components import Pos
 
 
 class DrawSpriteSystem(esper.Processor):
+    world: esper.World
+
     def __init__(self, ctx: moderngl.Context, window_conf: moderngl_window.WindowConfig):
         self.prog = shaders.load_shader("simple", ctx)
 
         # Load the texture with nearest filter
         atlas_path = "atlas.png"
         tex = window_conf.load_texture_2d(atlas_path, flip=True)
-        self.sampler = ctx.sampler(filter=(moderngl.NEAREST, moderngl.NEAREST), texture=tex)
+        tex.filter = (moderngl.NEAREST, moderngl.NEAREST)
+        # self.sampler = ctx.sampler(filter=(moderngl.NEAREST, moderngl.NEAREST), texture=tex)
         tex.use()
 
         vertices, indices = shapes.get_rect(-1, -1, 2, 2)
 
         # Set up the buffers
-        self.vbo = ctx.buffer(vertices.astype('f4').flatten().tobytes())
-        self.ibo = ctx.buffer(indices.astype('i4').tobytes())
+        self.vbo = ctx.buffer(reserve=1024)
+        self.ibo = ctx.buffer(reserve=1024)
         # Set up the atlas coordinates
-        self.prog['rects'].write(np.array(atlas.RECTS).astype('f4').tobytes())
+        # self.prog['rects'].write(np.array(atlas.RECTS).astype('f4').tobytes())
 
-        # Set up the images ids buffer. TODO: leave that to components
-        images = [
-            ((i + 1) / 8 - 1., sprite.value) for (i, sprite) in
-            enumerate([
-                Sprite.BG_LAYER_0_SKY,
-                Sprite.BG_LAYER_1_CLOUDS,
-                Sprite.BG_LAYER_2_CLOUND_LONELY,
-                Sprite.BG_LAYER_3_MOUNTAINS,
-                Sprite.BG_LAYER_4_DARK_LOW_CLOUDS,
-                Sprite.BG_LAYER_5_LOW_CLOUDS,
-                Sprite.BG_LAYER_6_LIGHT_CLOUDS,
-            ])
-        ]
-        images = struct.pack("fi" * len(images), *[x for p in images for x in p])
-        self.images = ctx.buffer(images)
+        # images = []
+        # images = struct.pack("fi" * len(images), *[x for p in images for x in p])
+        # self.images = ctx.buffer(reserve=500)
 
         # The vao to draw actually things
         self.vao = ctx.vertex_array(
             self.prog,
             [
                 (self.vbo, "3f4 2f4 /v", "vert", "tex_coord"),
-                (self.images, "f4 u4 /i", "z", "sprite_id")
+                # (self.images, "f4 u4 /i", "z", "sprite_id")
             ],
             self.ibo)
 
     def process(self, *args, **kwargs):
-        self.prog['time'].value = kwargs.get('time', 0.)
-        self.sampler.use()
+        self.vbo.clear()
+        self.ibo.clear()
 
-        sprite_count = self.images.size // 8
-        print("Sprites:", sprite_count)
-        self.vao.render(instances=sprite_count)
+        tex_size = atlas.TEX_WIDTH, atlas.TEX_HEIGHT
+        screen_size = kwargs.get("screen_size")
+        indices = np.array([0, 1, 2, 0, 2, 3], dtype='i4')
+
+        qte = 0
+        for e, (sprite, pos) in self.world.get_components(Sprite, Pos):
+            assert (qte+1) * 20 * 4 < 1024, "You have a lot of sprites now, good job ! You need bigger buffer though"
+
+            # We compute the xyz coordinates of each point and the uv coordinate
+            # in the texture
+            i = sprite.value
+            uvwh = atlas.RECTS[i * 4: (i + 1) * 4]
+            points = self.points(pos, uvwh, tex_size, screen_size)  # the xyzuv for each point
+
+            bytes = struct.pack("20f", *points)
+            self.vbo.write(bytes, offset=qte * len(bytes))
+
+            # The  indices are about the next four points we just wrote
+            bytes = indices.tobytes()
+            self.ibo.write(bytes, offset=qte * len(bytes))
+            indices += 4
+
+            qte += 1
+
+        self.vao.render()
+
+    def points(self, xyz, uvwh, tex_size, screen_size):
+        x, y, z = xyz
+        u, v, w, h = uvwh
+        tw, th = tex_size
+        sw, sh = screen_size
+
+        points = [
+            (
+                x + (2 * w / sw) * dx - 1,  # x in -1..1 (TODO: Camera in shader)
+                y + (2 * h / sh) * dy - 1,  # y in -1..1
+                z,  # z anywhere, but mostly between -1..1
+                (u + dx * w) / tw,  # u of texture between 0..1
+                1 - (v + (1 - dy) * h) / th, # v of texture between 0..1
+            )
+
+            for dx, dy in (
+                (0, 0),
+                (1, 0),
+                (1, 1),
+                (0, 1),
+            )
+        ]
+        flat = [x for r in points for x in r]
+        return flat
