@@ -41,9 +41,10 @@ class DrawSpriteSystem(esper.Processor):
     def process(self, *args, **kwargs):
         self.vbo.clear()
         self.ibo.clear()
+        self.prog['camera'].value = kwargs['camera'].as_vec4()
 
         tex_size = atlas.TEX_WIDTH, atlas.TEX_HEIGHT
-        screen_size = kwargs.get("screen_size")
+        screen_size = kwargs["screen_size"]
         indices = np.array([0, 1, 2, 0, 2, 3], dtype="i4")
 
         qte = 0
@@ -78,11 +79,11 @@ class DrawSpriteSystem(esper.Processor):
 
         points = [
             (
-                x + (2 * w / sw) * dx - 1,  # x in -1..1 (TODO: Camera in shader)
-                y + (2 * h / sh) * dy - 1,  # y in -1..1
+                x + w * dx,  # x in -1..1 (TODO: Camera in shader)
+                y - h * dy,  # y in -1..1
                 z,  # z anywhere, but mostly between -1..1
                 (u + dx * w) / tw,  # u of texture between 0..1
-                1 - (v + (1 - dy) * h) / th,  # v of texture between 0..1
+                1 - (v + dy * h) / th,  # v of texture between 0..1
             )
             for dx, dy in ((0, 0), (1, 0), (1, 1), (0, 1),)
         ]

@@ -6,6 +6,7 @@ import moderngl_window
 
 from src import systems
 from src.atlas import Sprite
+from src.camera import Camera
 from src.components import Pos
 from src.paths import ASSETS_DIR
 
@@ -26,7 +27,9 @@ class Window(moderngl_window.WindowConfig):
         # Set up the world for all our entities
         self.world = esper.World()
         self.world.add_processor(systems.DrawSpriteSystem(self.ctx, self))
+        self.world.add_processor(systems.MoveCameraSystem())
         self.init_background()
+        self.init_camera()
 
     def init_background(self):
         layers = [
@@ -39,11 +42,22 @@ class Window(moderngl_window.WindowConfig):
             Sprite.BG_LAYER_6_LIGHT_CLOUDS,
         ]
 
+        size = self.window_size
         for i, sprite in enumerate(layers):
-            self.world.create_entity(sprite, Pos(0, 0, i / 10))
+            self.world.create_entity(sprite, Pos(0, size[1], i / 10))
+
+    def init_camera(self):
+        size = self.window_size
+        self.camera = Camera((size[0] / 2, size[1] / 2), size)
 
     def render(self, time: float, frame_time: float):
-        self.world.process(ctx=self.ctx, time=time, screen_size=self.window_size)
+        self.world.process(
+            ctx=self.ctx,
+            time=time,
+            frame_time=frame_time,
+            screen_size=self.window_size,
+            camera=self.camera,
+        )
 
 
 if __name__ == "__main__":

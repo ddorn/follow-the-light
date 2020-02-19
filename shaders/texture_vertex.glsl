@@ -3,9 +3,13 @@
 in vec3 vert;
 in vec2 tex_coord;
 
+// xy is center of camera and zw is the size of the view
+uniform vec4 camera;
+
 out vec2 f_tex_coord;
 
 void main() {
     f_tex_coord = tex_coord;
-    gl_Position = vec4(vert, 1.0);
+    vec2 xy = (vert.xy - camera.xy) / camera.zw * 2.0;
+    gl_Position = vec4(xy, vert.z, 1.0);
 }
