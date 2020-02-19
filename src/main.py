@@ -7,7 +7,7 @@ import moderngl_window
 from src import systems
 from src.atlas import Sprite
 from src.camera import Camera
-from src.components import Pos
+from src.components import Pos, Parallax
 from src.paths import ASSETS_DIR
 
 
@@ -26,8 +26,9 @@ class Window(moderngl_window.WindowConfig):
 
         # Set up the world for all our entities
         self.world = esper.World()
-        self.world.add_processor(systems.DrawSpriteSystem(self.ctx, self))
-        self.world.add_processor(systems.MoveCameraSystem())
+        self.world.add_processor(systems.DrawSpriteSystem(self.ctx, self), 3)
+        self.world.add_processor(systems.MoveCameraSystem(), 1)
+        self.world.add_processor(systems.ParallaxSystem(), 2)
         self.init_background()
         self.init_camera()
 
@@ -44,7 +45,10 @@ class Window(moderngl_window.WindowConfig):
 
         size = self.window_size
         for i, sprite in enumerate(layers):
-            self.world.create_entity(sprite, Pos(0, size[1], i / 10))
+            for side in (True, False):
+                self.world.create_entity(
+                    sprite, Pos(0, size[1], i / 10), Parallax(side, -i * 5)
+                )
 
     def init_camera(self):
         size = self.window_size
@@ -52,11 +56,7 @@ class Window(moderngl_window.WindowConfig):
 
     def render(self, time: float, frame_time: float):
         self.world.process(
-            ctx=self.ctx,
-            time=time,
-            frame_time=frame_time,
-            screen_size=self.window_size,
-            camera=self.camera,
+            ctx=self.ctx, time=time, frame_time=frame_time, camera=self.camera,
         )
 
 

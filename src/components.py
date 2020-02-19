@@ -17,3 +17,11 @@ class Pos:
         yield self.x
         yield self.y
         yield self.z
+
+
+@dataclass
+class Parallax:
+    left: bool
+    """Whether the image is the left one of the two images required to fill the screen"""
+    speed: float
+    """Speed at which the image moves in pixels per seconds"""
