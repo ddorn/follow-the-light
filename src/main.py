@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
-import struct
 
 import esper
 import moderngl
 import moderngl_window
-import numpy as np
 
-from src import shaders, shapes, atlas, systems
+from src import systems
+from src.atlas import Sprite
 from src.components import Pos
 from src.paths import ASSETS_DIR
-from src.atlas import Sprite
 
 
 class Window(moderngl_window.WindowConfig):
@@ -42,10 +40,7 @@ class Window(moderngl_window.WindowConfig):
         ]
 
         for i, sprite in enumerate(layers):
-            self.world.create_entity(
-                sprite,
-                Pos(0, 0, i/10)
-            )
+            self.world.create_entity(sprite, Pos(0, 0, i / 10))
 
     def render(self, time: float, frame_time: float):
         self.world.process(ctx=self.ctx, time=time, screen_size=self.window_size)

@@ -15,6 +15,6 @@ def load_shader(name: str, ctx: moderngl.Context):
     fragment_path = os.path.join(SHADERS_DIR, f"{name}_fragment.glsl")
 
     vertex = load_file(vertex_path)
-    fragement = load_file(fragment_path)
+    fragment = load_file(fragment_path)
 
-    return ctx.program(vertex_shader=vertex, fragment_shader=fragement)
+    return ctx.program(vertex_shader=vertex, fragment_shader=fragment)

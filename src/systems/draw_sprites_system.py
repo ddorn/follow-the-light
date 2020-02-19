@@ -5,7 +5,7 @@ import moderngl
 import moderngl_window
 import numpy as np
 
-from src import shaders, shapes, atlas
+from src import shaders, atlas
 from src.atlas import Sprite
 from src.components import Pos
 
@@ -13,7 +13,9 @@ from src.components import Pos
 class DrawSpriteSystem(esper.Processor):
     world: esper.World
 
-    def __init__(self, ctx: moderngl.Context, window_conf: moderngl_window.WindowConfig):
+    def __init__(
+        self, ctx: moderngl.Context, window_conf: moderngl_window.WindowConfig
+    ):
         self.prog = shaders.load_shader("texture", ctx)
 
         # Load the texture with nearest filter
@@ -33,7 +35,8 @@ class DrawSpriteSystem(esper.Processor):
                 (self.vbo, "3f4 2f4 /v", "vert", "tex_coord"),
                 # (self.images, "f4 u4 /i", "z", "sprite_id")
             ],
-            self.ibo)
+            self.ibo,
+        )
 
     def process(self, *args, **kwargs):
         self.vbo.clear()
@@ -41,17 +44,19 @@ class DrawSpriteSystem(esper.Processor):
 
         tex_size = atlas.TEX_WIDTH, atlas.TEX_HEIGHT
         screen_size = kwargs.get("screen_size")
-        indices = np.array([0, 1, 2, 0, 2, 3], dtype='i4')
+        indices = np.array([0, 1, 2, 0, 2, 3], dtype="i4")
 
         qte = 0
         for e, (sprite, pos) in self.world.get_components(Sprite, Pos):
-            assert (qte + 1) * 20 * 4 < 1024, "You have a lot of sprites now, good job ! You need bigger buffer though"
+            assert (
+                qte + 1
+            ) * 20 * 4 < 1024, "You have a lot of sprites now, good job ! You need bigger buffer though"
 
             # We compute the xyz coordinates of each point and the uv coordinate
             # in the texture
             i = sprite.value
-            uvwh = atlas.RECTS[i * 4: (i + 1) * 4]
-            points = self.points(pos, uvwh, tex_size, screen_size)  # the xyzuv for each point
+            uvwh = atlas.RECTS[i * 4 : (i + 1) * 4]
+            points = self.points(pos, uvwh, tex_size, screen_size)
 
             bytes = struct.pack("20f", *points)
             self.vbo.write(bytes, offset=qte * len(bytes))
@@ -79,13 +84,7 @@ class DrawSpriteSystem(esper.Processor):
                 (u + dx * w) / tw,  # u of texture between 0..1
                 1 - (v + (1 - dy) * h) / th,  # v of texture between 0..1
             )
-
-            for dx, dy in (
-                (0, 0),
-                (1, 0),
-                (1, 1),
-                (0, 1),
-            )
+            for dx, dy in ((0, 0), (1, 0), (1, 1), (0, 1),)
         ]
         flat = [x for r in points for x in r]
         return flat
