@@ -41,7 +41,7 @@ class DrawSpriteSystem(esper.Processor):
     def process(self, *args, **kwargs):
         self.vbo.clear()
         self.ibo.clear()
-        self.prog['camera'].value = kwargs['camera'].as_vec4()
+        self.prog["camera"].value = kwargs["camera"].as_vec4()
 
         tex_size = atlas.TEX_WIDTH, atlas.TEX_HEIGHT
         screen_size = kwargs["screen_size"]
