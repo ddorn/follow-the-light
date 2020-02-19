@@ -14,26 +14,17 @@ class DrawSpriteSystem(esper.Processor):
     world: esper.World
 
     def __init__(self, ctx: moderngl.Context, window_conf: moderngl_window.WindowConfig):
-        self.prog = shaders.load_shader("simple", ctx)
+        self.prog = shaders.load_shader("texture", ctx)
 
         # Load the texture with nearest filter
         atlas_path = "atlas.png"
         tex = window_conf.load_texture_2d(atlas_path, flip=True)
         tex.filter = (moderngl.NEAREST, moderngl.NEAREST)
-        # self.sampler = ctx.sampler(filter=(moderngl.NEAREST, moderngl.NEAREST), texture=tex)
         tex.use()
-
-        vertices, indices = shapes.get_rect(-1, -1, 2, 2)
 
         # Set up the buffers
         self.vbo = ctx.buffer(reserve=1024)
         self.ibo = ctx.buffer(reserve=1024)
-        # Set up the atlas coordinates
-        # self.prog['rects'].write(np.array(atlas.RECTS).astype('f4').tobytes())
-
-        # images = []
-        # images = struct.pack("fi" * len(images), *[x for p in images for x in p])
-        # self.images = ctx.buffer(reserve=500)
 
         # The vao to draw actually things
         self.vao = ctx.vertex_array(
@@ -54,7 +45,7 @@ class DrawSpriteSystem(esper.Processor):
 
         qte = 0
         for e, (sprite, pos) in self.world.get_components(Sprite, Pos):
-            assert (qte+1) * 20 * 4 < 1024, "You have a lot of sprites now, good job ! You need bigger buffer though"
+            assert (qte + 1) * 20 * 4 < 1024, "You have a lot of sprites now, good job ! You need bigger buffer though"
 
             # We compute the xyz coordinates of each point and the uv coordinate
             # in the texture
@@ -86,7 +77,7 @@ class DrawSpriteSystem(esper.Processor):
                 y + (2 * h / sh) * dy - 1,  # y in -1..1
                 z,  # z anywhere, but mostly between -1..1
                 (u + dx * w) / tw,  # u of texture between 0..1
-                1 - (v + (1 - dy) * h) / th, # v of texture between 0..1
+                1 - (v + (1 - dy) * h) / th,  # v of texture between 0..1
             )
 
             for dx, dy in (
