@@ -79,10 +79,10 @@ class DrawSpriteSystem(esper.Processor):
         points = [
             (
                 x + w * dx,  # x in screen coordinates
-                y - h * dy,  # y in screen coordinates
+                y + h * dy,  # y in screen coordinates
                 z,  # z anywhere, but mostly between -1..1
                 (u + dx * w) / tw,  # u of texture between 0..1
-                1 - (v + dy * h) / th,  # v of texture between 0..1
+                (v + dy * h) / th,  # v of texture between 0..1
             )
             for dx, dy in ((0, 0), (1, 0), (1, 1), (0, 1),)
         ]

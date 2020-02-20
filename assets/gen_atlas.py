@@ -37,14 +37,15 @@ class Sprite(enum.Enum):
 
     # buffer
     buffer = [
-        "{x:<{s}}, {y:<{s}}, {w:<{s}}, {h:<{s}},".format(
+        "{x:<{s}}, {y:<{s}}, {w:<{s}}, {h:<{s}},  # {i}".format(
             s=5,
             x=rect.x + extrude,
             y=rect.y + extrude,
             w=rect.width - extrude * 2,
             h=rect.height - extrude * 2,
+            i=i
         )
-        for rect in sorted(bin, key=lambda rect: rect.rid)
+        for i, rect in enumerate(sorted(bin, key=lambda rect: rect.rid))
     ]
     buffer_sep = "\n" + " " * 4  # one tab
     buffer_str = buffer_sep.join(buffer)

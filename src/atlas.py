@@ -4,19 +4,25 @@ import enum
 
 TEX_WIDTH = 2048
 TEX_HEIGHT = 2048
+
 RECTS = [
     #   x,     y,     w,     h
-    2    , 2    , 384  , 216  ,
-    390  , 2    , 384  , 216  ,
-    778  , 2    , 384  , 216  ,
-    1166 , 2    , 384  , 216  ,
-    1554 , 2    , 384  , 216  ,
-    2    , 222  , 384  , 216  ,
-    390  , 222  , 384  , 216  ,
-    778  , 222  , 384  , 216  ,
-    1166 , 222  , 384  , 216  ,
-    1554 , 222  , 384  , 216  ,
+    2    , 2    , 384  , 216  ,  # 0
+    390  , 2    , 384  , 216  ,  # 1
+    778  , 2    , 384  , 216  ,  # 2
+    1166 , 2    , 384  , 216  ,  # 3
+    1554 , 2    , 384  , 216  ,  # 4
+    2    , 222  , 384  , 216  ,  # 5
+    390  , 222  , 384  , 216  ,  # 6
+    778  , 222  , 384  , 216  ,  # 7
+    1166 , 222  , 384  , 216  ,  # 8
+    1554 , 222  , 384  , 216  ,  # 9
 ]
+"""
+Coordinates of the rectangles of each image in the atlas.
+The coordinates increase left and up, as in a standard R² 
+coordinate system. Indices corresponds to 4 time the sprite ids.
+"""
 
 
 class Sprite(enum.Enum):

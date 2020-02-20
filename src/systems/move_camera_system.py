@@ -8,7 +8,7 @@ class MoveCameraSystem(esper.Processor):
         time = kwargs["time"]
         camera = kwargs["camera"]
         w, h = camera.size
-        speed = 1
+        speed = 0
         camera.center = (
             w / 2 + 100 * cos(time * speed),
             h / 2 + 100 * sin(time * speed),

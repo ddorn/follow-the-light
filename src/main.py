@@ -47,7 +47,7 @@ class Window(moderngl_window.WindowConfig):
         for i, sprite in enumerate(layers):
             for side in (True, False):
                 self.world.create_entity(
-                    sprite, Pos(0, size[1], i / 10), Parallax(side, -i * 5)
+                    sprite, Pos(0, 0, i / 10), Parallax(side, -i * 5)
                 )
 
     def init_camera(self):
