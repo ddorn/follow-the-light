@@ -56,8 +56,11 @@ class Window(moderngl_window.WindowConfig):
 
     def render(self, time: float, frame_time: float):
         self.world.process(
-            ctx=self.ctx, time=time, frame_time=frame_time, camera=self.camera,
-            screen_size=self.wnd.size
+            ctx=self.ctx,
+            time=time,
+            frame_time=frame_time,
+            camera=self.camera,
+            screen_size=self.wnd.size,
         )
 
 
