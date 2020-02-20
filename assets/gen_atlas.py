@@ -125,7 +125,8 @@ def combine(bin: rectpack.MaxRectsBssf, images: List[Image.Image]) -> Image.Imag
 @click.option("--img-out", default="atlas.png")
 @click.option("--atlas-size", default=(2048, 2048))
 def main(files, extrude, img_out, py_out, atlas_size):
-    images = [Image.open(file) for file in sorted(files)]
+    files = sorted(files)
+    images = [Image.open(file) for file in files]
 
     if extrude:
         images = [extruded(im, extrude) for im in images]
