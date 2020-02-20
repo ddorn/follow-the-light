@@ -1,3 +1,6 @@
 moderngl
 numpy
 esper
+rectpack
+pillow
+click
