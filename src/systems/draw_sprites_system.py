@@ -20,11 +20,12 @@ class DrawSpriteSystem(esper.Processor):
         self, ctx: moderngl.Context, window_conf: moderngl_window.WindowConfig
     ):
         self.prog = shaders.load_shader("texture", ctx)
+        self.prog["tex_size"].value = (atlas.TEX_WIDTH, atlas.TEX_HEIGHT)
 
         # Load the texture with nearest filter
         atlas_path = "atlas.png"
         tex = window_conf.load_texture_2d(atlas_path, flip=True)
-        tex.filter = (moderngl.NEAREST, moderngl.NEAREST)
+        # tex.filter = (moderngl.NEAREST, moderngl.NEAREST)
         tex.use()
 
         # Set up the buffers
@@ -40,6 +41,8 @@ class DrawSpriteSystem(esper.Processor):
         self.vbo.clear()
         self.ibo.clear()
         self.prog["camera"].value = kwargs["camera"].as_vec4()
+        if "screen_size" in self.prog:
+            self.prog["screen_size"].value = kwargs["screen_size"]
 
         tex_size = atlas.TEX_WIDTH, atlas.TEX_HEIGHT
         indices = np.array([0, 1, 2, 0, 2, 3], dtype="i4")
