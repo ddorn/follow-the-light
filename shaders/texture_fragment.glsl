@@ -1,6 +1,8 @@
 #version 330
 
 in vec2 f_tex_coord;
+in vec3 f_pos;
+
 uniform sampler2D tex;
 uniform vec2 tex_size;
 uniform vec2 screen_size;
@@ -19,10 +21,25 @@ vec2 fix(vec2 coord) {
     return (ipos + inner_pos) / tex_size;
 }
 
+
+vec4 blur(vec2 pos, float z) {
+    float factor = 3.0;
+
+    vec4 color = vec4(0.0);
+    float half_size = factor * z*z;
+    for (float dx = -half_size; dx < half_size; ++dx) {
+        for (float dy = -half_size; dy < half_size; ++dy) {
+            color += texture(tex, vec2(pos + vec2(dx, dy) / tex_size));
+        }
+    }
+    return color / pow(ceil(2.*half_size), 2.0);
+}
+
 void main() {
 
-    vec4 color = texture(tex, fix(f_tex_coord));
-//    color.a = color.a < 1.0 ? 0.0 : 1.0;
-    gl_FragColor = color;
-//    gl_FragColor = vec4(fix(f_tex_coord), 0.0, 1.0);
+//    if (f_pos.z < -0.2) {
+//        gl_FragColor = blur(f_tex_coord, f_pos.z);
+//    } else {
+        gl_FragColor = texture(tex, fix(f_tex_coord));
+//    }
 }
