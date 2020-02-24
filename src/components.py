@@ -20,6 +20,10 @@ class Pos:
         yield self.y
         yield self.z
 
+    def __add__(self, other):
+        x, y, z = other
+        return Pos(self.x + x, self.y + y, self.z + z)
+
 
 @dataclass
 class Parallax:
