@@ -129,7 +129,7 @@ RECTS = [
 ]
 """
 Coordinates of the rectangles of each image in the atlas.
-The coordinates increase left and up, as in a standard R² 
+The coordinates increase left and up, as in a standard R²
 coordinate system. Indices corresponds to 4 time the sprite ids.
 """
 
@@ -254,3 +254,14 @@ class Sprite(enum.Enum):
     ADVENTURER_SWRD_SHTE_03 = 116
     ADVENTURER_WALL_SLIDE_00 = 117
     ADVENTURER_WALL_SLIDE_01 = 118
+    
+    
+    def next(self):
+        name, _, number = self.name.rpartition("_")
+        try:
+            number = int(number) + 1
+            return Sprite[name + '_' + str(number)]
+        except ValueError:
+            return self
+        except KeyError:
+            return Sprite[name + "_00"]

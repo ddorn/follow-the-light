@@ -25,3 +25,7 @@ class Parallax:
     """Whether the image is the left one of the two images required to fill the screen"""
     speed: float
     """Speed at which the image moves in pixels per seconds"""
+
+
+class Player:
+    pass

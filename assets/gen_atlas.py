@@ -29,7 +29,19 @@ coordinate system. Indices corresponds to 4 time the sprite ids.
 
 
 class Sprite(enum.Enum):
-    ENUM'''
+    ENUM
+    
+    
+    def next(self):
+        name, _, number = self.name.rpartition("_")
+        try:
+            number = int(number) + 1
+            return Sprite[name + '_' + str(number)]
+        except ValueError:
+            return self
+        except KeyError:
+            return Sprite[name + "_00"]
+'''
 
     # size
     width = bin.width
