@@ -6,6 +6,8 @@ since the logic is performed by the systems.
 """
 from dataclasses import dataclass
 
+from src.atlas import Anim
+
 
 @dataclass
 class Pos:
@@ -32,9 +34,20 @@ class Player:
 
 
 class Animation:
-    dt: float
-    frame_duration: float
-
-    def __init__(self, frame_duration = 15/60):
+    def __init__(self, anim: Anim, frame_duration=15 / 60):
         self.dt = 0.0
         self.frame_duration = frame_duration
+        self.index = 0
+        self.anim = anim
+
+    def update(self, frame_time: float):
+        """True if the animation should go to the next frame"""
+        self.dt += frame_time
+        if self.dt >= self.frame_duration:
+            self.dt -= self.frame_duration
+            return True
+        return False
+
+    def advance(self, n=1):
+        self.index = (self.index + n) % len(self.anim.value)
+

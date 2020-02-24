@@ -9,11 +9,10 @@ class AnimationSystem(Processor):
 
     def process(self, *args, **kwargs):
         # dt is negative on the first frame
-        dt = max(kwargs['frame_time'], 0.0)
+        dt = max(kwargs["frame_time"], 0.0)
 
         anim: Animation
-        for e, (sprite, anim) in self.world.get_components(Sprite, Animation):
-            anim.dt += dt
-            if anim.dt >= anim.frame_duration:
-                anim.dt -= anim.frame_duration
-                self.world.add_component(e, sprite.next())
+        for e, anim in self.world.get_component(Animation):
+            if anim.update(dt):
+                anim.advance(1)
+                self.world.add_component(e, Sprite(anim.anim.value[anim.index]))

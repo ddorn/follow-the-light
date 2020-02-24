@@ -31,20 +31,9 @@ coordinate system. Indices corresponds to 4 time the sprite ids.
 class Sprite(enum.Enum):
     ENUM
     
-    @classmethod
-    @lru_cache(maxsize=None)
-    def _next(cls, self):
-        name, _, number = self.name.rpartition("_")
-        try:
-            number = int(number) + 1
-            return cls[f'{name}_{number:02}']
-        except ValueError:
-            return self
-        except KeyError:
-            return cls[name + "_00"]
-            
-    def next(self):
-        return self._next(self)
+    
+class Anim(enum.Enum):
+    ANIM
 '''
 
     # size
@@ -67,16 +56,29 @@ class Sprite(enum.Enum):
     buffer_str = buffer_sep.join(buffer)
 
     # enum
+    names = [python_enum_name(file) for file in files]
     enum_sep = "\n" + " " * 4  # one tab
-    enum_str = enum_sep.join(
-        f"{python_enum_name(name)} = {i}" for (i, name) in enumerate(files)
-    )
+    enum_str = enum_sep.join(f"{name} = {i}" for (i, name) in enumerate(names))
+
+    # anim
+    anims = {}
+    for i, name in enumerate(names):
+        n, _, idx = name.rpartition("_")
+        if idx.isdecimal():
+            a = anims.get(n, {})
+            a[idx] = i
+            anims[n] = a
+    for anim_name, anim in anims.items():
+        anims[anim_name] = tuple(i for (_, i) in sorted(anim.items()))
+    sep = "\n" + " " * 4
+    anim_str = sep.join(f"{name} = {frames}" for name, frames in anims.items())
 
     code = (
         TEMPLATE.replace("BUFFER", buffer_str)
         .replace("ENUM", enum_str)
         .replace("WW", str(width))
         .replace("HH", str(height))
+        .replace("ANIM", anim_str)
     )
 
     return code

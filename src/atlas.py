@@ -256,17 +256,34 @@ class Sprite(enum.Enum):
     ADVENTURER_WALL_SLIDE_00 = 117
     ADVENTURER_WALL_SLIDE_01 = 118
     
-    @classmethod
-    @lru_cache(maxsize=None)
-    def _next(cls, self):
-        name, _, number = self.name.rpartition("_")
-        try:
-            number = int(number) + 1
-            return cls[f'{name}_{number:02}']
-        except ValueError:
-            return self
-        except KeyError:
-            return cls[name + "_00"]
-            
-    def next(self):
-        return self._next(self)
+    
+class Anim(enum.Enum):
+    ADVENTURER_AIR_ATTACK_3_END = (10, 11, 12)
+    ADVENTURER_AIR_ATTACK1 = (13, 14, 15, 16)
+    ADVENTURER_AIR_ATTACK2 = (17, 18, 19)
+    ADVENTURER_AIR_ATTACK3_LOOP = (20, 21)
+    ADVENTURER_AIR_ATTACK3_RDY = (22,)
+    ADVENTURER_ATTACK1 = (23, 24, 25, 26, 27)
+    ADVENTURER_ATTACK2 = (28, 29, 30, 31, 32, 33)
+    ADVENTURER_ATTACK3 = (34, 35, 36, 37, 38, 39)
+    ADVENTURER_CAST = (40, 41, 42, 43)
+    ADVENTURER_CAST_LOOP = (44, 45, 46, 47)
+    ADVENTURER_CRNR_CLMB = (48, 49, 50, 51, 52)
+    ADVENTURER_CRNR_GRB = (53, 54, 55, 56)
+    ADVENTURER_CRNR_JMP = (57, 58)
+    ADVENTURER_CROUCH = (59, 60, 61, 62)
+    ADVENTURER_DIE = (63, 64, 65, 66, 67, 68, 69)
+    ADVENTURER_FALL = (70, 71)
+    ADVENTURER_HURT = (72, 73, 74)
+    ADVENTURER_IDLE = (75, 76, 77, 78)
+    ADVENTURER_IDLE_2 = (79, 80, 81, 82)
+    ADVENTURER_ITEMS = (83, 84, 85)
+    ADVENTURER_JUMP = (86, 87, 88, 89)
+    ADVENTURER_LADDER_CLIMB = (90, 91, 92, 93)
+    ADVENTURER_RUN = (94, 95, 96, 97, 98, 99)
+    ADVENTURER_SLIDE = (100, 101)
+    ADVENTURER_SMRSLT = (102, 103, 104, 105)
+    ADVENTURER_STAND = (106, 107, 108)
+    ADVENTURER_SWRD_DRW = (109, 110, 111, 112)
+    ADVENTURER_SWRD_SHTE = (113, 114, 115, 116)
+    ADVENTURER_WALL_SLIDE = (117, 118)

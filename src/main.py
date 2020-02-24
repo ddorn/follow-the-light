@@ -5,7 +5,7 @@ import moderngl
 import moderngl_window
 
 from src import systems
-from src.atlas import Sprite
+from src.atlas import Sprite, Anim
 from src.camera import Camera
 from src.components import Pos, Parallax, Player, Animation
 from src.paths import ASSETS_DIR
@@ -58,9 +58,11 @@ class Window(moderngl_window.WindowConfig):
 
     def init_player(self):
         size = self.window_size
-        self.world.create_entity(Player(), Pos(size[0] / 2, size[1] / 2, 0),
-                                 Sprite(Sprite.ADVENTURER_IDLE_00),
-                                 Animation())
+        self.world.create_entity(
+            Player(),
+            Pos(size[0] / 2, size[1] / 2, 0),
+            Animation(Anim.ADVENTURER_ATTACK2, 5 / 60),
+        )
 
     def render(self, time: float, frame_time: float):
         self.world.process(
