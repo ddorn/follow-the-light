@@ -17,6 +17,115 @@ RECTS = [
     778  , 222  , 384  , 216  ,  # 7
     1166 , 222  , 384  , 216  ,  # 8
     1554 , 222  , 384  , 216  ,  # 9
+    1942 , 2    , 50   , 37   ,  # 10
+    1996 , 2    , 50   , 37   ,  # 11
+    1942 , 43   , 50   , 37   ,  # 12
+    1996 , 43   , 50   , 37   ,  # 13
+    1942 , 84   , 50   , 37   ,  # 14
+    1996 , 84   , 50   , 37   ,  # 15
+    1942 , 125  , 50   , 37   ,  # 16
+    1996 , 125  , 50   , 37   ,  # 17
+    1942 , 166  , 50   , 37   ,  # 18
+    1996 , 166  , 50   , 37   ,  # 19
+    1942 , 207  , 50   , 37   ,  # 20
+    1996 , 207  , 50   , 37   ,  # 21
+    1942 , 248  , 50   , 37   ,  # 22
+    1996 , 248  , 50   , 37   ,  # 23
+    1942 , 289  , 50   , 37   ,  # 24
+    1996 , 289  , 50   , 37   ,  # 25
+    1942 , 330  , 50   , 37   ,  # 26
+    1996 , 330  , 50   , 37   ,  # 27
+    1942 , 371  , 50   , 37   ,  # 28
+    1996 , 371  , 50   , 37   ,  # 29
+    1942 , 412  , 50   , 37   ,  # 30
+    1996 , 412  , 50   , 37   ,  # 31
+    2    , 453  , 50   , 37   ,  # 32
+    2    , 494  , 50   , 37   ,  # 33
+    2    , 535  , 50   , 37   ,  # 34
+    2    , 576  , 50   , 37   ,  # 35
+    2    , 617  , 50   , 37   ,  # 36
+    2    , 658  , 50   , 37   ,  # 37
+    2    , 699  , 50   , 37   ,  # 38
+    2    , 740  , 50   , 37   ,  # 39
+    2    , 781  , 50   , 37   ,  # 40
+    2    , 822  , 50   , 37   ,  # 41
+    2    , 863  , 50   , 37   ,  # 42
+    2    , 904  , 50   , 37   ,  # 43
+    2    , 945  , 50   , 37   ,  # 44
+    2    , 986  , 50   , 37   ,  # 45
+    2    , 1027 , 50   , 37   ,  # 46
+    2    , 1068 , 50   , 37   ,  # 47
+    2    , 1109 , 50   , 37   ,  # 48
+    2    , 1150 , 50   , 37   ,  # 49
+    2    , 1191 , 50   , 37   ,  # 50
+    2    , 1232 , 50   , 37   ,  # 51
+    2    , 1273 , 50   , 37   ,  # 52
+    2    , 1314 , 50   , 37   ,  # 53
+    2    , 1355 , 50   , 37   ,  # 54
+    2    , 1396 , 50   , 37   ,  # 55
+    2    , 1437 , 50   , 37   ,  # 56
+    2    , 1478 , 50   , 37   ,  # 57
+    2    , 1519 , 50   , 37   ,  # 58
+    2    , 1560 , 50   , 37   ,  # 59
+    2    , 1601 , 50   , 37   ,  # 60
+    2    , 1642 , 50   , 37   ,  # 61
+    2    , 1683 , 50   , 37   ,  # 62
+    2    , 1724 , 50   , 37   ,  # 63
+    2    , 1765 , 50   , 37   ,  # 64
+    2    , 1806 , 50   , 37   ,  # 65
+    2    , 1847 , 50   , 37   ,  # 66
+    2    , 1888 , 50   , 37   ,  # 67
+    2    , 1929 , 50   , 37   ,  # 68
+    2    , 1970 , 50   , 37   ,  # 69
+    56   , 453  , 50   , 37   ,  # 70
+    56   , 494  , 50   , 37   ,  # 71
+    56   , 535  , 50   , 37   ,  # 72
+    56   , 576  , 50   , 37   ,  # 73
+    56   , 617  , 50   , 37   ,  # 74
+    56   , 658  , 50   , 37   ,  # 75
+    56   , 699  , 50   , 37   ,  # 76
+    56   , 740  , 50   , 37   ,  # 77
+    56   , 781  , 50   , 37   ,  # 78
+    56   , 822  , 50   , 37   ,  # 79
+    56   , 863  , 50   , 37   ,  # 80
+    56   , 904  , 50   , 37   ,  # 81
+    56   , 945  , 50   , 37   ,  # 82
+    56   , 986  , 50   , 37   ,  # 83
+    56   , 1027 , 50   , 37   ,  # 84
+    56   , 1068 , 50   , 37   ,  # 85
+    56   , 1109 , 50   , 37   ,  # 86
+    56   , 1150 , 50   , 37   ,  # 87
+    56   , 1191 , 50   , 37   ,  # 88
+    56   , 1232 , 50   , 37   ,  # 89
+    56   , 1273 , 50   , 37   ,  # 90
+    56   , 1314 , 50   , 37   ,  # 91
+    56   , 1355 , 50   , 37   ,  # 92
+    56   , 1396 , 50   , 37   ,  # 93
+    56   , 1437 , 50   , 37   ,  # 94
+    56   , 1478 , 50   , 37   ,  # 95
+    56   , 1519 , 50   , 37   ,  # 96
+    56   , 1560 , 50   , 37   ,  # 97
+    56   , 1601 , 50   , 37   ,  # 98
+    56   , 1642 , 50   , 37   ,  # 99
+    56   , 1683 , 50   , 37   ,  # 100
+    56   , 1724 , 50   , 37   ,  # 101
+    56   , 1765 , 50   , 37   ,  # 102
+    56   , 1806 , 50   , 37   ,  # 103
+    56   , 1847 , 50   , 37   ,  # 104
+    56   , 1888 , 50   , 37   ,  # 105
+    56   , 1929 , 50   , 37   ,  # 106
+    56   , 1970 , 50   , 37   ,  # 107
+    110  , 453  , 50   , 37   ,  # 108
+    110  , 494  , 50   , 37   ,  # 109
+    110  , 535  , 50   , 37   ,  # 110
+    110  , 576  , 50   , 37   ,  # 111
+    110  , 617  , 50   , 37   ,  # 112
+    110  , 658  , 50   , 37   ,  # 113
+    110  , 699  , 50   , 37   ,  # 114
+    110  , 740  , 50   , 37   ,  # 115
+    110  , 781  , 50   , 37   ,  # 116
+    110  , 822  , 50   , 37   ,  # 117
+    110  , 863  , 50   , 37   ,  # 118
 ]
 """
 Coordinates of the rectangles of each image in the atlas.
@@ -36,3 +145,112 @@ class Sprite(enum.Enum):
     BG_LAYER_5_LOW_CLOUDS = 7
     BG_LAYER_6_LIGHT_CLOUDS = 8
     BG_LAYER_6_LIGHT_CLOUDS_LIGHTENED = 9
+    ADVENTURER_AIR_ATTACK_3_END_00 = 10
+    ADVENTURER_AIR_ATTACK_3_END_01 = 11
+    ADVENTURER_AIR_ATTACK_3_END_02 = 12
+    ADVENTURER_AIR_ATTACK1_00 = 13
+    ADVENTURER_AIR_ATTACK1_01 = 14
+    ADVENTURER_AIR_ATTACK1_02 = 15
+    ADVENTURER_AIR_ATTACK1_03 = 16
+    ADVENTURER_AIR_ATTACK2_00 = 17
+    ADVENTURER_AIR_ATTACK2_01 = 18
+    ADVENTURER_AIR_ATTACK2_02 = 19
+    ADVENTURER_AIR_ATTACK3_LOOP_00 = 20
+    ADVENTURER_AIR_ATTACK3_LOOP_01 = 21
+    ADVENTURER_AIR_ATTACK3_RDY_00 = 22
+    ADVENTURER_ATTACK1_00 = 23
+    ADVENTURER_ATTACK1_01 = 24
+    ADVENTURER_ATTACK1_02 = 25
+    ADVENTURER_ATTACK1_03 = 26
+    ADVENTURER_ATTACK1_04 = 27
+    ADVENTURER_ATTACK2_00 = 28
+    ADVENTURER_ATTACK2_01 = 29
+    ADVENTURER_ATTACK2_02 = 30
+    ADVENTURER_ATTACK2_03 = 31
+    ADVENTURER_ATTACK2_04 = 32
+    ADVENTURER_ATTACK2_05 = 33
+    ADVENTURER_ATTACK3_00 = 34
+    ADVENTURER_ATTACK3_01 = 35
+    ADVENTURER_ATTACK3_02 = 36
+    ADVENTURER_ATTACK3_03 = 37
+    ADVENTURER_ATTACK3_04 = 38
+    ADVENTURER_ATTACK3_05 = 39
+    ADVENTURER_CAST_00 = 40
+    ADVENTURER_CAST_01 = 41
+    ADVENTURER_CAST_02 = 42
+    ADVENTURER_CAST_03 = 43
+    ADVENTURER_CAST_LOOP_00 = 44
+    ADVENTURER_CAST_LOOP_01 = 45
+    ADVENTURER_CAST_LOOP_02 = 46
+    ADVENTURER_CAST_LOOP_03 = 47
+    ADVENTURER_CRNR_CLMB_00 = 48
+    ADVENTURER_CRNR_CLMB_01 = 49
+    ADVENTURER_CRNR_CLMB_02 = 50
+    ADVENTURER_CRNR_CLMB_03 = 51
+    ADVENTURER_CRNR_CLMB_04 = 52
+    ADVENTURER_CRNR_GRB_00 = 53
+    ADVENTURER_CRNR_GRB_01 = 54
+    ADVENTURER_CRNR_GRB_02 = 55
+    ADVENTURER_CRNR_GRB_03 = 56
+    ADVENTURER_CRNR_JMP_00 = 57
+    ADVENTURER_CRNR_JMP_01 = 58
+    ADVENTURER_CROUCH_00 = 59
+    ADVENTURER_CROUCH_01 = 60
+    ADVENTURER_CROUCH_02 = 61
+    ADVENTURER_CROUCH_03 = 62
+    ADVENTURER_DIE_00 = 63
+    ADVENTURER_DIE_01 = 64
+    ADVENTURER_DIE_02 = 65
+    ADVENTURER_DIE_03 = 66
+    ADVENTURER_DIE_04 = 67
+    ADVENTURER_DIE_05 = 68
+    ADVENTURER_DIE_06 = 69
+    ADVENTURER_FALL_00 = 70
+    ADVENTURER_FALL_01 = 71
+    ADVENTURER_HURT_00 = 72
+    ADVENTURER_HURT_01 = 73
+    ADVENTURER_HURT_02 = 74
+    ADVENTURER_IDLE_00 = 75
+    ADVENTURER_IDLE_01 = 76
+    ADVENTURER_IDLE_02 = 77
+    ADVENTURER_IDLE_03 = 78
+    ADVENTURER_IDLE_2_00 = 79
+    ADVENTURER_IDLE_2_01 = 80
+    ADVENTURER_IDLE_2_02 = 81
+    ADVENTURER_IDLE_2_03 = 82
+    ADVENTURER_ITEMS_00 = 83
+    ADVENTURER_ITEMS_01 = 84
+    ADVENTURER_ITEMS_02 = 85
+    ADVENTURER_JUMP_00 = 86
+    ADVENTURER_JUMP_01 = 87
+    ADVENTURER_JUMP_02 = 88
+    ADVENTURER_JUMP_03 = 89
+    ADVENTURER_LADDER_CLIMB_00 = 90
+    ADVENTURER_LADDER_CLIMB_01 = 91
+    ADVENTURER_LADDER_CLIMB_02 = 92
+    ADVENTURER_LADDER_CLIMB_03 = 93
+    ADVENTURER_RUN_00 = 94
+    ADVENTURER_RUN_01 = 95
+    ADVENTURER_RUN_02 = 96
+    ADVENTURER_RUN_03 = 97
+    ADVENTURER_RUN_04 = 98
+    ADVENTURER_RUN_05 = 99
+    ADVENTURER_SLIDE_00 = 100
+    ADVENTURER_SLIDE_01 = 101
+    ADVENTURER_SMRSLT_00 = 102
+    ADVENTURER_SMRSLT_01 = 103
+    ADVENTURER_SMRSLT_02 = 104
+    ADVENTURER_SMRSLT_03 = 105
+    ADVENTURER_STAND_00 = 106
+    ADVENTURER_STAND_01 = 107
+    ADVENTURER_STAND_02 = 108
+    ADVENTURER_SWRD_DRW_00 = 109
+    ADVENTURER_SWRD_DRW_01 = 110
+    ADVENTURER_SWRD_DRW_02 = 111
+    ADVENTURER_SWRD_DRW_03 = 112
+    ADVENTURER_SWRD_SHTE_00 = 113
+    ADVENTURER_SWRD_SHTE_01 = 114
+    ADVENTURER_SWRD_SHTE_02 = 115
+    ADVENTURER_SWRD_SHTE_03 = 116
+    ADVENTURER_WALL_SLIDE_00 = 117
+    ADVENTURER_WALL_SLIDE_01 = 118

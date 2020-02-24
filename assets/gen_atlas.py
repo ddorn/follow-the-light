@@ -23,7 +23,7 @@ RECTS = [
 ]
 """
 Coordinates of the rectangles of each image in the atlas.
-The coordinates increase left and up, as in a standard R² 
+The coordinates increase left and up, as in a standard R²
 coordinate system. Indices corresponds to 4 time the sprite ids.
 """
 
@@ -43,7 +43,7 @@ class Sprite(enum.Enum):
             y=rect.y + extrude,
             w=rect.width - extrude * 2,
             h=rect.height - extrude * 2,
-            i=i
+            i=i,
         )
         for i, rect in enumerate(sorted(bin, key=lambda rect: rect.rid))
     ]
@@ -67,7 +67,7 @@ class Sprite(enum.Enum):
 
 
 def python_enum_name(name: str):
-    name = name.rpartition("/")[2].partition(".")[0].upper()
+    name = name.rpartition("/")[2].partition(".")[0].replace("-", "_").upper()
 
     return name
 
@@ -123,9 +123,10 @@ def combine(bin: rectpack.MaxRectsBssf, images: List[Image.Image]) -> Image.Imag
 @click.argument("files", nargs=-1)
 @click.option("--py-out", default="atlas.py")
 @click.option("--img-out", default="atlas.png")
-@click.option("--atlas-size", default=(2048, 2048))
+@click.option("--atlas-size", default=(2 ** 11,) * 2)
 def main(files, extrude, img_out, py_out, atlas_size):
     files = sorted(files)
+    print(*files, sep="\n")
     images = [Image.open(file) for file in files]
 
     if extrude:
@@ -139,6 +140,8 @@ def main(files, extrude, img_out, py_out, atlas_size):
 
     # Pack all the images in the atlas
     packer.pack()
+    missing = len(files) - len(packer[0])
+    assert missing == 0, f"Unable to pack everything. {missing} images missing"
     atlas = combine(packer[0], images)
 
     # Output
