@@ -29,3 +29,12 @@ class Parallax:
 
 class Player:
     pass
+
+
+class Animation:
+    dt: float
+    frame_duration: float
+
+    def __init__(self, frame_duration = 15/60):
+        self.dt = 0.0
+        self.frame_duration = frame_duration

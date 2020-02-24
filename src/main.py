@@ -7,7 +7,7 @@ import moderngl_window
 from src import systems
 from src.atlas import Sprite
 from src.camera import Camera
-from src.components import Pos, Parallax, Player
+from src.components import Pos, Parallax, Player, Animation
 from src.paths import ASSETS_DIR
 
 
@@ -26,9 +26,11 @@ class Window(moderngl_window.WindowConfig):
 
         # Set up the world for all our entities
         self.world = esper.World()
-        self.world.add_processor(systems.DrawSpriteSystem(self.ctx, self), 3)
-        self.world.add_processor(systems.MoveCameraSystem(), 1)
+        # High numbers first
+        self.world.add_processor(systems.MoveCameraSystem(), 3)
         self.world.add_processor(systems.ParallaxSystem(), 2)
+        self.world.add_processor(systems.AnimationSystem(), 2)
+        self.world.add_processor(systems.DrawSpriteSystem(self.ctx, self), 1)
         self.init_background()
         self.init_camera()
         self.init_player()
@@ -57,7 +59,8 @@ class Window(moderngl_window.WindowConfig):
     def init_player(self):
         size = self.window_size
         self.world.create_entity(Player(), Pos(size[0] / 2, size[1] / 2, 0),
-                                 Sprite(Sprite.ADVENTURER_IDLE_00))
+                                 Sprite(Sprite.ADVENTURER_IDLE_00),
+                                 Animation())
 
     def render(self, time: float, frame_time: float):
         self.world.process(
