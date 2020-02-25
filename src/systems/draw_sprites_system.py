@@ -55,9 +55,7 @@ class DrawSpriteSystem(esper.Processor):
 
             # We compute the xyz coordinates of each point and the uv coordinate
             # in the texture
-            i = sprite.value
-            uvwh = atlas.RECTS[i * 4 : (i + 1) * 4]
-            points = self.points(pos, uvwh, tex_size)
+            points = self.points(pos, atlas.RECTS[sprite.value], tex_size)
 
             bytes = struct.pack("20f", *points)
             self.vbo.write(bytes, offset=qte * len(bytes))
@@ -71,10 +69,13 @@ class DrawSpriteSystem(esper.Processor):
 
         self.vao.render()
 
-    def points(self, xyz, uvwh, tex_size):
+    def points(self, xyz, sprite, tex_size):
         x, y, z = xyz
-        u, v, w, h = uvwh
+        u, v, w, h, dx, dy, _, _ = sprite
         tw, th = tex_size
+
+        x += dx
+        y += dy
 
         points = [
             (
