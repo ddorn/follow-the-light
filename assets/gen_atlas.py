@@ -26,7 +26,7 @@ class Vec2:
 
 
 class Sprite:
-    def __init__(self, file=''):
+    def __init__(self, file=""):
         self.file = file
         self.im = Image.open(file)
         self.original_size = self.im.size
@@ -91,7 +91,9 @@ class Sprite:
         draw = ImageDraw.Draw(new)
         draw.rectangle((0, 0, ex, ex), self.im.getpixel((0, 0)))  # top-left
         draw.rectangle((nw - ex, 0, nw, ex), self.im.getpixel((w - 1, 0)))  # top-right
-        draw.rectangle((0, nh - ex, ex, nh), self.im.getpixel((0, h - 1)))  # bottom-left
+        draw.rectangle(
+            (0, nh - ex, ex, nh), self.im.getpixel((0, h - 1))
+        )  # bottom-left
         draw.rectangle(
             (nw - ex, nh - ex, nw, nh), self.im.getpixel((w - 1, h - 1))
         )  # bottom-right
@@ -100,7 +102,9 @@ class Sprite:
         return self
 
     def content_rect(self, rect_x, rect_y):
-        return *(self.content_offset + Vec2(rect_x, rect_y)), *self.content_size
+        return tuple(self.content_offset + Vec2(rect_x, rect_y)) + tuple(
+            self.content_size
+        )
 
     def python_enum_name(self) -> str:
         name = self.file.rpartition("/")[2].partition(".")[0].replace("-", "_").upper()
@@ -108,7 +112,7 @@ class Sprite:
         return name
 
     def as_tuple(self, pos):
-        return *self.content_rect(*pos), *self.total_offset, *self.original_size
+        return (*self.content_rect(*pos), *self.total_offset, *self.original_size)
 
 
 def gen_py_string(bin: rectpack.MaxRectsBssf, images: List[Sprite]):
@@ -158,7 +162,7 @@ class Anim(enum.Enum):
             *images[i].as_tuple((rect.x, rect.y)),
             s=4,
             i=i,
-            name=images[i].python_enum_name()
+            name=images[i].python_enum_name(),
         )
         for i, rect in enumerate(sorted(bin, key=lambda rect: rect.rid))
     ]
@@ -185,10 +189,10 @@ class Anim(enum.Enum):
 
     code = (
         TEMPLATE.replace("BUFFER", buffer_str)
-            .replace("ENUM", enum_str)
-            .replace("WW", str(width))
-            .replace("HH", str(height))
-            .replace("ANIM", anim_str)
+        .replace("ENUM", enum_str)
+        .replace("WW", str(width))
+        .replace("HH", str(height))
+        .replace("ANIM", anim_str)
     )
 
     return code

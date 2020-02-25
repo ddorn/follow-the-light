@@ -13,7 +13,8 @@ from src.paths import ASSETS_DIR
 
 class Window(moderngl_window.WindowConfig):
     gl_version = (3, 3)
-    window_size = (384, 216)
+    window_size = (650, 650*9//16)
+    # window_size = (384, 216)
     resource_dir = ASSETS_DIR
     title = "Follow the light"
 
@@ -46,10 +47,30 @@ class Window(moderngl_window.WindowConfig):
             Sprite.BG_LAYER_6_LIGHT_CLOUDS,
         ]
 
+        layers = [
+            Sprite.BG_FOREST_0_SKY,
+            Sprite.BG_FOREST_1_SHADOWS,
+            Sprite.BG_FOREST_2_DARK_SHADOW,
+            Sprite.BG_FOREST_3_LIGHTS,
+            Sprite.BG_FOREST_4_TREES,
+            Sprite.BG_FOREST_5_BIGGER_TREES,
+            Sprite.BG_FOREST_5_MORE_TREES,
+            Sprite.BG_FOREST_6_LIGHTS,
+            Sprite.BG_FOREST_6_LEAVES,
+            Sprite.BG_FOREST_7_GRASS,
+            Sprite.BG_FOREST_8_DARK_GRASS,
+        ]
+
         for i, sprite in enumerate(layers):
             for side in (True, False):
                 self.world.create_entity(
-                    sprite, Pos(0, 0, i/7 - 1), Parallax(side, -i * 5)
+                    sprite, Pos(0, 0, i / len(layers) - 1), Parallax(side, -i * 5)
+                )
+
+        for i, sprite in enumerate(layers):
+            for side in (True, False):
+                self.world.create_entity(
+                    sprite, Pos(0, 0, i / 7 - 1), Parallax(side, -i * 5)
                 )
 
     def init_camera(self):

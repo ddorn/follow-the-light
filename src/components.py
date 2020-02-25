@@ -54,4 +54,3 @@ class Animation:
 
     def advance(self, n=1):
         self.index = (self.index + n) % len(self.anim.value)
-
