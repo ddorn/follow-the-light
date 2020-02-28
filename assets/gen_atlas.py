@@ -5,6 +5,7 @@ from typing import List
 
 import click
 import rectpack
+import scipy.signal
 from PIL import Image, ImageDraw
 from rectpack import newPacker
 from rectpack.packer import Packer
@@ -60,10 +61,24 @@ class Sprite:
     def fix_alpha(self, rgb=(255, 255, 255)):
         # extend where there is transparency
         pix = np.array(self.im.convert("RGBA"))
-        pix[pix[..., 3] < 3] = (*rgb, 0)
+        pix[pix[..., 3] == 0] = (*rgb, 0)
         self.im = Image.fromarray(pix)
 
         return self
+
+    def fix_border(self):
+        im = np.array(self.im).astype(np.int32)
+        ker = np.ones((3, 3))
+        s = scipy.signal.convolve2d(im[...,3], ker, mode='same')
+        trans_border = ((im[..., 3] == 0) * (s > 0))[1:-1, 1:-1]
+        s = s[1:-1, 1:-1]
+        r = scipy.signal.convolve2d(im[...,0]*im[...,3], ker, mode='valid') / s
+        g = scipy.signal.convolve2d(im[...,1]*im[...,3], ker, mode='valid') / s
+        b = scipy.signal.convolve2d(im[...,2]*im[...,3], ker, mode='valid') / s
+        im[1:-1, 1:-1, 0][trans_border] = r[trans_border]
+        im[1:-1, 1:-1, 1][trans_border] = g[trans_border]
+        im[1:-1, 1:-1, 2][trans_border] = b[trans_border]
+        self.im = Image.fromarray(im.astype(np.int8), mode='RGBA')
 
     def extrude(self, ex: int):
         """Expand an image of `ex` pixels on each side, stretching the border"""
@@ -99,6 +114,9 @@ class Sprite:
         )  # bottom-right
 
         self.im = new
+
+        self.fix_border()
+
         return self
 
     def content_rect(self, rect_x, rect_y):

@@ -11,133 +11,133 @@ RECTS = [
     (2   , 2   , 928 , 793 , 2   , 2   , 928 , 793 ),  # 0: BG_FOREST_0_SKY
     (934 , 2   , 928 , 414 , 2   , 2   , 928 , 793 ),  # 1: BG_FOREST_1_SHADOWS
     (934 , 701 , 928 , 271 , 2   , 66  , 928 , 793 ),  # 2: BG_FOREST_2_DARK_SHADOW
-    (390 , 1554, 470 , 162 , 259 , 175 , 928 , 793 ),  # 3: BG_FOREST_3_LIGHTS
+    (2   , 1574, 479 , 178 , 250 , 159 , 928 , 793 ),  # 3: BG_FOREST_3_LIGHTS
     (2   , 799 , 928 , 271 , 2   , 66  , 928 , 793 ),  # 4: BG_FOREST_4_TREES
     (934 , 976 , 928 , 271 , 2   , 66  , 928 , 793 ),  # 5: BG_FOREST_5_BIGGER_TREES
     (2   , 1074, 898 , 272 , 32  , 65  , 928 , 793 ),  # 6: BG_FOREST_5_MORE_TREES
     (934 , 420 , 928 , 277 , 2   , 323 , 928 , 793 ),  # 7: BG_FOREST_6_LEAVES
-    (2   , 1350, 592 , 200 , 26  , 137 , 928 , 793 ),  # 8: BG_FOREST_6_LIGHTS
-    (904 , 1251, 928 , 70  , 2   , 2   , 928 , 793 ),  # 9: BG_FOREST_7_GRASS
-    (598 , 1350, 928 , 77  , 2   , 2   , 928 , 793 ),  # 10: BG_FOREST_8_DARK_GRASS
-    (2   , 1554, 384 , 216 , 2   , 2   , 384 , 216 ),  # 11: BG_LAYER_0_SKY
-    (2   , 1774, 384 , 216 , 2   , 2   , 384 , 216 ),  # 12: BG_LAYER_0_SKY_LIGHTENED
-    (1530, 1325, 384 , 169 , 2   , 2   , 384 , 216 ),  # 13: BG_LAYER_1_CLOUDS
-    (1918, 2   , 89  , 31  , 215 , 148 , 384 , 216 ),  # 14: BG_LAYER_2_CLOUND_LONELY
-    (390 , 1720, 384 , 164 , 2   , 2   , 384 , 216 ),  # 15: BG_LAYER_3_MOUNTAINS
-    (778 , 1720, 384 , 164 , 2   , 2   , 384 , 216 ),  # 16: BG_LAYER_3_MOUNTAINS_LIGHTENED
-    (598 , 1431, 384 , 61  , 2   , 2   , 384 , 216 ),  # 17: BG_LAYER_4_DARK_LOW_CLOUDS
-    (390 , 1888, 384 , 61  , 2   , 2   , 384 , 216 ),  # 18: BG_LAYER_5_LOW_CLOUDS
-    (598 , 1498, 384 , 51  , 2   , 2   , 384 , 216 ),  # 19: BG_LAYER_6_LIGHT_CLOUDS
-    (2   , 1994, 384 , 51  , 2   , 2   , 384 , 216 ),  # 20: BG_LAYER_6_LIGHT_CLOUDS_LIGHTENED
-    (1866, 2   , 48  , 36  , 3   , 3   , 50  , 37  ),  # 21: ADVENTURER_AIR_ATTACK_3_END_00
-    (1836, 1251, 46  , 30  , 5   , 3   , 50  , 37  ),  # 22: ADVENTURER_AIR_ATTACK_3_END_01
-    (1918, 64  , 46  , 22  , 4   , 3   , 50  , 37  ),  # 23: ADVENTURER_AIR_ATTACK_3_END_02
-    (1954, 352 , 18  , 26  , 17  , 4   , 50  , 37  ),  # 24: ADVENTURER_AIR_ATTACK1_00
-    (1836, 1285, 46  , 30  , 4   , 5   , 50  , 37  ),  # 25: ADVENTURER_AIR_ATTACK1_01
-    (1968, 70  , 29  , 30  , 8   , 6   , 50  , 37  ),  # 26: ADVENTURER_AIR_ATTACK1_02
-    (2001, 77  , 27  , 31  , 7   , 6   , 50  , 37  ),  # 27: ADVENTURER_AIR_ATTACK1_03
-    (2011, 42  , 34  , 31  , 17  , 4   , 50  , 37  ),  # 28: ADVENTURER_AIR_ATTACK2_00
+    (2   , 1350, 603 , 220 , 15  , 117 , 928 , 793 ),  # 8: BG_FOREST_6_LIGHTS
+    (2   , 1976, 928 , 70  , 2   , 2   , 928 , 793 ),  # 9: BG_FOREST_7_GRASS
+    (485 , 1574, 928 , 77  , 2   , 2   , 928 , 793 ),  # 10: BG_FOREST_8_DARK_GRASS
+    (2   , 1756, 384 , 216 , 2   , 2   , 384 , 216 ),  # 11: BG_LAYER_0_SKY
+    (390 , 1756, 384 , 216 , 2   , 2   , 384 , 216 ),  # 12: BG_LAYER_0_SKY_LIGHTENED
+    (609 , 1350, 384 , 169 , 2   , 2   , 384 , 216 ),  # 13: BG_LAYER_1_CLOUDS
+    (1166, 1775, 89  , 31  , 215 , 148 , 384 , 216 ),  # 14: BG_LAYER_2_CLOUND_LONELY
+    (778 , 1655, 384 , 164 , 2   , 2   , 384 , 216 ),  # 15: BG_LAYER_3_MOUNTAINS
+    (934 , 1823, 384 , 164 , 2   , 2   , 384 , 216 ),  # 16: BG_LAYER_3_MOUNTAINS_LIGHTENED
+    (904 , 1251, 384 , 61  , 2   , 2   , 384 , 216 ),  # 17: BG_LAYER_4_DARK_LOW_CLOUDS
+    (1166, 1655, 384 , 61  , 2   , 2   , 384 , 216 ),  # 18: BG_LAYER_5_LOW_CLOUDS
+    (934 , 1991, 384 , 51  , 2   , 2   , 384 , 216 ),  # 19: BG_LAYER_6_LIGHT_CLOUDS
+    (1166, 1720, 384 , 51  , 2   , 2   , 384 , 216 ),  # 20: BG_LAYER_6_LIGHT_CLOUDS_LIGHTENED
+    (1259, 1775, 48  , 36  , 3   , 3   , 50  , 37  ),  # 21: ADVENTURER_AIR_ATTACK_3_END_00
+    (904 , 1316, 46  , 30  , 5   , 3   , 50  , 37  ),  # 22: ADVENTURER_AIR_ATTACK_3_END_01
+    (740 , 1523, 46  , 22  , 4   , 3   , 50  , 37  ),  # 23: ADVENTURER_AIR_ATTACK_3_END_02
+    (845 , 1913, 18  , 26  , 17  , 4   , 50  , 37  ),  # 24: ADVENTURER_AIR_ATTACK1_00
+    (954 , 1316, 46  , 30  , 4   , 5   , 50  , 37  ),  # 25: ADVENTURER_AIR_ATTACK1_01
+    (821 , 1523, 29  , 30  , 8   , 6   , 50  , 37  ),  # 26: ADVENTURER_AIR_ATTACK1_02
+    (886 , 1523, 27  , 31  , 7   , 6   , 50  , 37  ),  # 27: ADVENTURER_AIR_ATTACK1_03
+    (702 , 1523, 34  , 31  , 17  , 4   , 50  , 37  ),  # 28: ADVENTURER_AIR_ATTACK2_00
     (904 , 1074, 23  , 31  , 18  , 5   , 50  , 37  ),  # 29: ADVENTURER_AIR_ATTACK2_01
-    (1866, 227 , 16  , 26  , 17  , 6   , 50  , 37  ),  # 30: ADVENTURER_AIR_ATTACK2_02
-    (1886, 117 , 27  , 30  , 10  , 6   , 50  , 37  ),  # 31: ADVENTURER_AIR_ATTACK3_LOOP_00
-    (1918, 90  , 27  , 31  , 10  , 6   , 50  , 37  ),  # 32: ADVENTURER_AIR_ATTACK3_LOOP_01
-    (1886, 82  , 28  , 31  , 10  , 7   , 50  , 37  ),  # 33: ADVENTURER_AIR_ATTACK3_RDY_00
-    (1886, 212 , 27  , 22  , 9   , 3   , 50  , 37  ),  # 34: ADVENTURER_ATTACK1_00
-    (1123, 1325, 25  , 20  , 10  , 3   , 50  , 37  ),  # 35: ADVENTURER_ATTACK1_01
-    (2011, 2   , 34  , 36  , 17  , 3   , 50  , 37  ),  # 36: ADVENTURER_ATTACK1_02
-    (1886, 42  , 27  , 36  , 17  , 3   , 50  , 37  ),  # 37: ADVENTURER_ATTACK1_03
-    (1918, 190 , 19  , 32  , 17  , 3   , 50  , 37  ),  # 38: ADVENTURER_ATTACK1_04
-    (1918, 363 , 18  , 26  , 17  , 3   , 50  , 37  ),  # 39: ADVENTURER_ATTACK2_00
-    (1932, 332 , 18  , 27  , 17  , 3   , 50  , 37  ),  # 40: ADVENTURER_ATTACK2_01
-    (2010, 233 , 20  , 27  , 15  , 3   , 50  , 37  ),  # 41: ADVENTURER_ATTACK2_02
-    (1970, 37  , 37  , 29  , 12  , 3   , 50  , 37  ),  # 42: ADVENTURER_ATTACK2_03
-    (980 , 1325, 32  , 21  , 4   , 3   , 50  , 37  ),  # 43: ADVENTURER_ATTACK2_04
-    (2015, 112 , 31  , 22  , 4   , 3   , 50  , 37  ),  # 44: ADVENTURER_ATTACK2_05
-    (1918, 257 , 20  , 26  , 21  , 3   , 50  , 37  ),  # 45: ADVENTURER_ATTACK3_00
-    (1886, 269 , 20  , 26  , 22  , 3   , 50  , 37  ),  # 46: ADVENTURER_ATTACK3_01
-    (1918, 37  , 48  , 23  , 4   , 3   , 50  , 37  ),  # 47: ADVENTURER_ATTACK3_02
-    (1016, 1325, 31  , 19  , 5   , 3   , 50  , 37  ),  # 48: ADVENTURER_ATTACK3_03
-    (904 , 1325, 34  , 20  , 2   , 3   , 50  , 37  ),  # 49: ADVENTURER_ATTACK3_04
-    (942 , 1325, 34  , 20  , 2   , 3   , 50  , 37  ),  # 50: ADVENTURER_ATTACK3_05
-    (1985, 232 , 21  , 26  , 17  , 3   , 50  , 37  ),  # 51: ADVENTURER_CAST_00
-    (1976, 359 , 18  , 25  , 17  , 3   , 50  , 37  ),  # 52: ADVENTURER_CAST_01
-    (2020, 383 , 17  , 25  , 18  , 3   , 50  , 37  ),  # 53: ADVENTURER_CAST_02
-    (1886, 151 , 27  , 24  , 17  , 3   , 50  , 37  ),  # 54: ADVENTURER_CAST_03
-    (2015, 138 , 27  , 24  , 17  , 3   , 50  , 37  ),  # 55: ADVENTURER_CAST_LOOP_00
-    (1949, 104 , 29  , 24  , 15  , 3   , 50  , 37  ),  # 56: ADVENTURER_CAST_LOOP_01
-    (1945, 132 , 27  , 24  , 17  , 3   , 50  , 37  ),  # 57: ADVENTURER_CAST_LOOP_02
-    (1982, 112 , 29  , 24  , 15  , 3   , 50  , 37  ),  # 58: ADVENTURER_CAST_LOOP_03
-    (1866, 194 , 16  , 29  , 23  , 4   , 50  , 37  ),  # 59: ADVENTURER_CRNR_CLMB_00
-    (1866, 257 , 15  , 26  , 23  , 6   , 50  , 37  ),  # 60: ADVENTURER_CRNR_CLMB_01
-    (1866, 287 , 15  , 24  , 22  , 7   , 50  , 37  ),  # 61: ADVENTURER_CRNR_CLMB_02
-    (1983, 411 , 14  , 24  , 23  , 9   , 50  , 37  ),  # 62: ADVENTURER_CRNR_CLMB_03
-    (1866, 418 , 15  , 24  , 23  , 9   , 50  , 37  ),  # 63: ADVENTURER_CRNR_CLMB_04
-    (1866, 80  , 14  , 34  , 23  , 2   , 50  , 37  ),  # 64: ADVENTURER_CRNR_GRB_00
-    (1866, 118 , 14  , 34  , 23  , 2   , 50  , 37  ),  # 65: ADVENTURER_CRNR_GRB_01
-    (1866, 42  , 15  , 34  , 22  , 2   , 50  , 37  ),  # 66: ADVENTURER_CRNR_GRB_02
-    (1866, 156 , 14  , 34  , 23  , 2   , 50  , 37  ),  # 67: ADVENTURER_CRNR_GRB_03
-    (1918, 125 , 23  , 29  , 19  , 3   , 50  , 37  ),  # 68: ADVENTURER_CRNR_JMP_00
-    (1886, 179 , 22  , 29  , 20  , 3   , 50  , 37  ),  # 69: ADVENTURER_CRNR_JMP_01
-    (1210, 1325, 19  , 21  , 18  , 3   , 50  , 37  ),  # 70: ADVENTURER_CROUCH_00
-    (1912, 393 , 20  , 22  , 17  , 3   , 50  , 37  ),  # 71: ADVENTURER_CROUCH_01
-    (1936, 411 , 19  , 22  , 17  , 3   , 50  , 37  ),  # 72: ADVENTURER_CROUCH_02
-    (1281, 1325, 17  , 21  , 19  , 3   , 50  , 37  ),  # 73: ADVENTURER_CROUCH_03
-    (1939, 304 , 21  , 24  , 18  , 3   , 50  , 37  ),  # 74: ADVENTURER_DIE_00
-    (1866, 362 , 19  , 24  , 19  , 3   , 50  , 37  ),  # 75: ADVENTURER_DIE_01
-    (1889, 379 , 19  , 24  , 17  , 3   , 50  , 37  ),  # 76: ADVENTURER_DIE_02
-    (2013, 302 , 22  , 22  , 18  , 3   , 50  , 37  ),  # 77: ADVENTURER_DIE_03
-    (1959, 417 , 18  , 18  , 20  , 3   , 50  , 37  ),  # 78: ADVENTURER_DIE_04
-    (1302, 1325, 15  , 17  , 23  , 3   , 50  , 37  ),  # 79: ADVENTURER_DIE_05
-    (1935, 437 , 18  , 18  , 20  , 3   , 50  , 37  ),  # 80: ADVENTURER_DIE_06
-    (1942, 224 , 17  , 31  , 20  , 7   , 50  , 37  ),  # 81: ADVENTURER_FALL_00
-    (1918, 287 , 17  , 30  , 20  , 7   , 50  , 37  ),  # 82: ADVENTURER_FALL_01
-    (1907, 321 , 21  , 24  , 18  , 3   , 50  , 37  ),  # 83: ADVENTURER_HURT_00
-    (1866, 390 , 19  , 24  , 19  , 3   , 50  , 37  ),  # 84: ADVENTURER_HURT_01
-    (2011, 355 , 19  , 24  , 17  , 3   , 50  , 37  ),  # 85: ADVENTURER_HURT_02
-    (1941, 191 , 19  , 29  , 16  , 3   , 50  , 37  ),  # 86: ADVENTURER_IDLE_00
-    (1886, 299 , 17  , 30  , 18  , 3   , 50  , 37  ),  # 87: ADVENTURER_IDLE_01
-    (2027, 166 , 19  , 30  , 17  , 3   , 50  , 37  ),  # 88: ADVENTURER_IDLE_02
-    (2003, 166 , 20  , 29  , 15  , 3   , 50  , 37  ),  # 89: ADVENTURER_IDLE_03
-    (1976, 140 , 23  , 27  , 12  , 3   , 50  , 37  ),  # 90: ADVENTURER_IDLE_2_00
-    (1945, 160 , 23  , 27  , 12  , 3   , 50  , 37  ),  # 91: ADVENTURER_IDLE_2_01
+    (997 , 1483, 16  , 26  , 17  , 6   , 50  , 37  ),  # 30: ADVENTURER_AIR_ATTACK2_02
+    (948 , 1523, 27  , 30  , 10  , 6   , 50  , 37  ),  # 31: ADVENTURER_AIR_ATTACK3_LOOP_00
+    (917 , 1523, 27  , 31  , 10  , 6   , 50  , 37  ),  # 32: ADVENTURER_AIR_ATTACK3_LOOP_01
+    (854 , 1523, 28  , 31  , 10  , 7   , 50  , 37  ),  # 33: ADVENTURER_AIR_ATTACK3_RDY_00
+    (608 , 1655, 27  , 22  , 9   , 3   , 50  , 37  ),  # 34: ADVENTURER_ATTACK1_00
+    (827 , 1853, 25  , 20  , 10  , 3   , 50  , 37  ),  # 35: ADVENTURER_ATTACK1_01
+    (1311, 1775, 34  , 36  , 17  , 3   , 50  , 37  ),  # 36: ADVENTURER_ATTACK1_02
+    (790 , 1523, 27  , 36  , 17  , 3   , 50  , 37  ),  # 37: ADVENTURER_ATTACK1_03
+    (601 , 1686, 19  , 32  , 17  , 3   , 50  , 37  ),  # 38: ADVENTURER_ATTACK1_04
+    (820 , 1915, 18  , 26  , 17  , 3   , 50  , 37  ),  # 39: ADVENTURER_ATTACK2_00
+    (778 , 1939, 18  , 27  , 17  , 3   , 50  , 37  ),  # 40: ADVENTURER_ATTACK2_01
+    (718 , 1655, 20  , 27  , 15  , 3   , 50  , 37  ),  # 41: ADVENTURER_ATTACK2_02
+    (661 , 1523, 37  , 29  , 12  , 3   , 50  , 37  ),  # 42: ADVENTURER_ATTACK2_03
+    (518 , 1655, 32  , 21  , 4   , 3   , 50  , 37  ),  # 43: ADVENTURER_ATTACK2_04
+    (485 , 1683, 31  , 22  , 4   , 3   , 50  , 37  ),  # 44: ADVENTURER_ATTACK2_05
+    (816 , 1823, 20  , 26  , 21  , 3   , 50  , 37  ),  # 45: ADVENTURER_ATTACK3_00
+    (778 , 1842, 20  , 26  , 22  , 3   , 50  , 37  ),  # 46: ADVENTURER_ATTACK3_01
+    (609 , 1523, 48  , 23  , 4   , 3   , 50  , 37  ),  # 47: ADVENTURER_ATTACK3_02
+    (979 , 1551, 31  , 19  , 5   , 3   , 50  , 37  ),  # 48: ADVENTURER_ATTACK3_03
+    (609 , 1550, 34  , 20  , 2   , 3   , 50  , 37  ),  # 49: ADVENTURER_ATTACK3_04
+    (740 , 1549, 34  , 20  , 2   , 3   , 50  , 37  ),  # 50: ADVENTURER_ATTACK3_05
+    (693 , 1655, 21  , 26  , 17  , 3   , 50  , 37  ),  # 51: ADVENTURER_CAST_00
+    (911 , 1908, 18  , 25  , 17  , 3   , 50  , 37  ),  # 52: ADVENTURER_CAST_01
+    (997 , 1425, 17  , 25  , 18  , 3   , 50  , 37  ),  # 53: ADVENTURER_CAST_02
+    (512 , 1709, 27  , 24  , 17  , 3   , 50  , 37  ),  # 54: ADVENTURER_CAST_03
+    (520 , 1680, 27  , 24  , 17  , 3   , 50  , 37  ),  # 55: ADVENTURER_CAST_LOOP_00
+    (979 , 1523, 29  , 24  , 15  , 3   , 50  , 37  ),  # 56: ADVENTURER_CAST_LOOP_01
+    (543 , 1708, 27  , 24  , 17  , 3   , 50  , 37  ),  # 57: ADVENTURER_CAST_LOOP_02
+    (485 , 1655, 29  , 24  , 15  , 3   , 50  , 37  ),  # 58: ADVENTURER_CAST_LOOP_03
+    (800 , 1919, 16  , 29  , 23  , 4   , 50  , 37  ),  # 59: ADVENTURER_CRNR_CLMB_00
+    (1035, 1504, 15  , 26  , 23  , 6   , 50  , 37  ),  # 60: ADVENTURER_CRNR_CLMB_01
+    (1019, 1397, 15  , 24  , 22  , 7   , 50  , 37  ),  # 61: ADVENTURER_CRNR_CLMB_02
+    (1038, 1373, 14  , 24  , 23  , 9   , 50  , 37  ),  # 62: ADVENTURER_CRNR_CLMB_03
+    (1018, 1446, 15  , 24  , 23  , 9   , 50  , 37  ),  # 63: ADVENTURER_CRNR_CLMB_04
+    (827 , 1877, 14  , 34  , 23  , 2   , 50  , 37  ),  # 64: ADVENTURER_CRNR_GRB_00
+    (802 , 1881, 14  , 34  , 23  , 2   , 50  , 37  ),  # 65: ADVENTURER_CRNR_GRB_01
+    (742 , 1690, 15  , 34  , 22  , 2   , 50  , 37  ),  # 66: ADVENTURER_CRNR_GRB_02
+    (778 , 1901, 14  , 34  , 23  , 2   , 50  , 37  ),  # 67: ADVENTURER_CRNR_GRB_03
+    (485 , 1709, 23  , 29  , 19  , 3   , 50  , 37  ),  # 68: ADVENTURER_CRNR_JMP_00
+    (574 , 1687, 22  , 29  , 20  , 3   , 50  , 37  ),  # 69: ADVENTURER_CRNR_JMP_01
+    (1014, 1539, 19  , 21  , 18  , 3   , 50  , 37  ),  # 70: ADVENTURER_CROUCH_00
+    (1004, 1316, 20  , 22  , 17  , 3   , 50  , 37  ),  # 71: ADVENTURER_CROUCH_01
+    (1012, 1513, 19  , 22  , 17  , 3   , 50  , 37  ),  # 72: ADVENTURER_CROUCH_02
+    (1028, 1316, 17  , 21  , 19  , 3   , 50  , 37  ),  # 73: ADVENTURER_CROUCH_03
+    (906 , 1854, 21  , 24  , 18  , 3   , 50  , 37  ),  # 74: ADVENTURER_DIE_00
+    (842 , 1943, 19  , 24  , 19  , 3   , 50  , 37  ),  # 75: ADVENTURER_DIE_01
+    (865 , 1943, 19  , 24  , 17  , 3   , 50  , 37  ),  # 76: ADVENTURER_DIE_02
+    (903 , 1882, 22  , 22  , 18  , 3   , 50  , 37  ),  # 77: ADVENTURER_DIE_03
+    (1038, 1401, 18  , 18  , 20  , 3   , 50  , 37  ),  # 78: ADVENTURER_DIE_04
+    (551 , 1687, 15  , 17  , 23  , 3   , 50  , 37  ),  # 79: ADVENTURER_DIE_05
+    (1044, 1423, 18  , 18  , 20  , 3   , 50  , 37  ),  # 80: ADVENTURER_DIE_06
+    (742 , 1655, 17  , 31  , 20  , 7   , 50  , 37  ),  # 81: ADVENTURER_FALL_00
+    (864 , 1823, 17  , 30  , 20  , 7   , 50  , 37  ),  # 82: ADVENTURER_FALL_01
+    (802 , 1853, 21  , 24  , 18  , 3   , 50  , 37  ),  # 83: ADVENTURER_HURT_00
+    (867 , 1915, 19  , 24  , 19  , 3   , 50  , 37  ),  # 84: ADVENTURER_HURT_01
+    (888 , 1943, 19  , 24  , 17  , 3   , 50  , 37  ),  # 85: ADVENTURER_HURT_02
+    (647 , 1675, 19  , 29  , 16  , 3   , 50  , 37  ),  # 86: ADVENTURER_IDLE_00
+    (885 , 1823, 17  , 30  , 18  , 3   , 50  , 37  ),  # 87: ADVENTURER_IDLE_01
+    (624 , 1681, 19  , 30  , 17  , 3   , 50  , 37  ),  # 88: ADVENTURER_IDLE_02
+    (601 , 1722, 20  , 29  , 15  , 3   , 50  , 37  ),  # 89: ADVENTURER_IDLE_03
+    (581 , 1655, 23  , 27  , 12  , 3   , 50  , 37  ),  # 90: ADVENTURER_IDLE_2_00
+    (574 , 1720, 23  , 27  , 12  , 3   , 50  , 37  ),  # 91: ADVENTURER_IDLE_2_01
     (904 , 1109, 25  , 28  , 11  , 3   , 50  , 37  ),  # 92: ADVENTURER_IDLE_2_02
     (904 , 1141, 25  , 28  , 11  , 3   , 50  , 37  ),  # 93: ADVENTURER_IDLE_2_03
-    (1998, 383 , 18  , 24  , 19  , 3   , 50  , 37  ),  # 94: ADVENTURER_ITEMS_00
-    (1984, 262 , 21  , 25  , 18  , 3   , 50  , 37  ),  # 95: ADVENTURER_ITEMS_01
-    (1964, 322 , 19  , 26  , 17  , 3   , 50  , 37  ),  # 96: ADVENTURER_ITEMS_02
-    (1987, 331 , 20  , 24  , 17  , 3   , 50  , 37  ),  # 97: ADVENTURER_JUMP_00
-    (1886, 418 , 20  , 22  , 17  , 3   , 50  , 37  ),  # 98: ADVENTURER_JUMP_01
-    (1966, 291 , 19  , 27  , 19  , 5   , 50  , 37  ),  # 99: ADVENTURER_JUMP_02
-    (2013, 328 , 21  , 23  , 16  , 11  , 50  , 37  ),  # 100: ADVENTURER_JUMP_03
-    (2032, 77  , 13  , 30  , 21  , 5   , 50  , 37  ),  # 101: ADVENTURER_LADDER_CLIMB_00
-    (1886, 444 , 13  , 27  , 21  , 7   , 50  , 37  ),  # 102: ADVENTURER_LADDER_CLIMB_01
-    (1918, 419 , 13  , 30  , 21  , 5   , 50  , 37  ),  # 103: ADVENTURER_LADDER_CLIMB_02
-    (1866, 446 , 13  , 27  , 21  , 7   , 50  , 37  ),  # 104: ADVENTURER_LADDER_CLIMB_03
-    (1972, 171 , 20  , 28  , 19  , 3   , 50  , 37  ),  # 105: ADVENTURER_RUN_00
-    (1918, 226 , 20  , 27  , 18  , 3   , 50  , 37  ),  # 106: ADVENTURER_RUN_01
-    (1866, 333 , 20  , 25  , 18  , 3   , 50  , 37  ),  # 107: ADVENTURER_RUN_02
-    (1918, 158 , 23  , 28  , 19  , 3   , 50  , 37  ),  # 108: ADVENTURER_RUN_03
-    (1886, 238 , 20  , 27  , 18  , 3   , 50  , 37  ),  # 109: ADVENTURER_RUN_04
-    (1989, 302 , 20  , 25  , 18  , 3   , 50  , 37  ),  # 110: ADVENTURER_RUN_05
-    (2009, 264 , 34  , 15  , 7   , 3   , 50  , 37  ),  # 111: ADVENTURER_SLIDE_00
-    (2009, 283 , 34  , 15  , 7   , 3   , 50  , 37  ),  # 112: ADVENTURER_SLIDE_01
-    (2001, 411 , 15  , 21  , 20  , 11  , 50  , 37  ),  # 113: ADVENTURER_SMRSLT_00
-    (1182, 1325, 24  , 17  , 16  , 12  , 50  , 37  ),  # 114: ADVENTURER_SMRSLT_01
-    (1233, 1325, 18  , 21  , 22  , 8   , 50  , 37  ),  # 115: ADVENTURER_SMRSLT_02
-    (1152, 1325, 26  , 17  , 13  , 9   , 50  , 37  ),  # 116: ADVENTURER_SMRSLT_03
-    (1051, 1325, 34  , 16  , 7   , 3   , 50  , 37  ),  # 117: ADVENTURER_STAND_00
-    (1089, 1325, 30  , 17  , 11  , 3   , 50  , 37  ),  # 118: ADVENTURER_STAND_01
-    (1255, 1325, 22  , 17  , 17  , 3   , 50  , 37  ),  # 119: ADVENTURER_STAND_02
-    (1940, 382 , 18  , 25  , 17  , 3   , 50  , 37  ),  # 120: ADVENTURER_SWRD_DRW_00
-    (1890, 349 , 18  , 26  , 17  , 3   , 50  , 37  ),  # 121: ADVENTURER_SWRD_DRW_01
-    (1996, 199 , 19  , 29  , 15  , 3   , 50  , 37  ),  # 122: ADVENTURER_SWRD_DRW_02
+    (997 , 1397, 18  , 24  , 19  , 3   , 50  , 37  ),  # 94: ADVENTURER_ITEMS_00
+    (717 , 1721, 21  , 25  , 18  , 3   , 50  , 37  ),  # 95: ADVENTURER_ITEMS_01
+    (880 , 1857, 19  , 26  , 17  , 3   , 50  , 37  ),  # 96: ADVENTURER_ITEMS_02
+    (870 , 1887, 20  , 24  , 17  , 3   , 50  , 37  ),  # 97: ADVENTURER_JUMP_00
+    (997 , 1371, 20  , 22  , 17  , 3   , 50  , 37  ),  # 98: ADVENTURER_JUMP_01
+    (906 , 1823, 19  , 27  , 19  , 5   , 50  , 37  ),  # 99: ADVENTURER_JUMP_02
+    (845 , 1886, 21  , 23  , 16  , 11  , 50  , 37  ),  # 100: ADVENTURER_JUMP_03
+    (894 , 1908, 13  , 30  , 21  , 5   , 50  , 37  ),  # 101: ADVENTURER_LADDER_CLIMB_00
+    (1037, 1446, 13  , 27  , 21  , 7   , 50  , 37  ),  # 102: ADVENTURER_LADDER_CLIMB_01
+    (761 , 1690, 13  , 30  , 21  , 5   , 50  , 37  ),  # 103: ADVENTURER_LADDER_CLIMB_02
+    (1027, 1342, 13  , 27  , 21  , 7   , 50  , 37  ),  # 104: ADVENTURER_LADDER_CLIMB_03
+    (625 , 1715, 20  , 28  , 19  , 3   , 50  , 37  ),  # 105: ADVENTURER_RUN_00
+    (693 , 1685, 20  , 27  , 18  , 3   , 50  , 37  ),  # 106: ADVENTURER_RUN_01
+    (778 , 1872, 20  , 25  , 18  , 3   , 50  , 37  ),  # 107: ADVENTURER_RUN_02
+    (554 , 1655, 23  , 28  , 19  , 3   , 50  , 37  ),  # 108: ADVENTURER_RUN_03
+    (693 , 1716, 20  , 27  , 18  , 3   , 50  , 37  ),  # 109: ADVENTURER_RUN_04
+    (856 , 1857, 20  , 25  , 18  , 3   , 50  , 37  ),  # 110: ADVENTURER_RUN_05
+    (512 , 1737, 34  , 15  , 7   , 3   , 50  , 37  ),  # 111: ADVENTURER_SLIDE_00
+    (778 , 1823, 34  , 15  , 7   , 3   , 50  , 37  ),  # 112: ADVENTURER_SLIDE_01
+    (1045, 1477, 15  , 21  , 20  , 11  , 50  , 37  ),  # 113: ADVENTURER_SMRSLT_00
+    (1017, 1483, 24  , 17  , 16  , 12  , 50  , 37  ),  # 114: ADVENTURER_SMRSLT_01
+    (1037, 1534, 18  , 21  , 22  , 8   , 50  , 37  ),  # 115: ADVENTURER_SMRSLT_02
+    (997 , 1350, 26  , 17  , 13  , 9   , 50  , 37  ),  # 116: ADVENTURER_SMRSLT_03
+    (639 , 1655, 34  , 16  , 7   , 3   , 50  , 37  ),  # 117: ADVENTURER_STAND_00
+    (742 , 1728, 30  , 17  , 11  , 3   , 50  , 37  ),  # 118: ADVENTURER_STAND_01
+    (1018, 1425, 22  , 17  , 17  , 3   , 50  , 37  ),  # 119: ADVENTURER_STAND_02
+    (911 , 1937, 18  , 25  , 17  , 3   , 50  , 37  ),  # 120: ADVENTURER_SWRD_DRW_00
+    (820 , 1945, 18  , 26  , 17  , 3   , 50  , 37  ),  # 121: ADVENTURER_SWRD_DRW_01
+    (649 , 1708, 19  , 29  , 15  , 3   , 50  , 37  ),  # 122: ADVENTURER_SWRD_DRW_02
     (904 , 1173, 24  , 29  , 10  , 3   , 50  , 37  ),  # 123: ADVENTURER_SWRD_DRW_03
     (904 , 1206, 24  , 29  , 10  , 3   , 50  , 37  ),  # 124: ADVENTURER_SWRD_SHTE_00
-    (2019, 200 , 19  , 29  , 15  , 3   , 50  , 37  ),  # 125: ADVENTURER_SWRD_SHTE_01
-    (1942, 274 , 20  , 26  , 15  , 3   , 50  , 37  ),  # 126: ADVENTURER_SWRD_SHTE_02
-    (1962, 388 , 17  , 25  , 18  , 3   , 50  , 37  ),  # 127: ADVENTURER_SWRD_SHTE_03
-    (1963, 239 , 17  , 31  , 18  , 5   , 50  , 37  ),  # 128: ADVENTURER_WALL_SLIDE_00
-    (1964, 203 , 17  , 32  , 18  , 5   , 50  , 37  ),  # 129: ADVENTURER_WALL_SLIDE_01
+    (670 , 1675, 19  , 29  , 15  , 3   , 50  , 37  ),  # 125: ADVENTURER_SWRD_SHTE_01
+    (840 , 1823, 20  , 26  , 15  , 3   , 50  , 37  ),  # 126: ADVENTURER_SWRD_SHTE_02
+    (997 , 1454, 17  , 25  , 18  , 3   , 50  , 37  ),  # 127: ADVENTURER_SWRD_SHTE_03
+    (717 , 1686, 17  , 31  , 18  , 5   , 50  , 37  ),  # 128: ADVENTURER_WALL_SLIDE_00
+    (672 , 1708, 17  , 32  , 18  , 5   , 50  , 37  ),  # 129: ADVENTURER_WALL_SLIDE_01
 ]
 """
 Coordinates of the rectangles of each image in the atlas.

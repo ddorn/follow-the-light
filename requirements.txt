@@ -4,3 +4,4 @@ esper
 rectpack
 pillow
 click
+scipy
