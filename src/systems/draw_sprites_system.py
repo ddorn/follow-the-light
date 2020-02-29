@@ -43,6 +43,8 @@ class DrawSpriteSystem(esper.Processor):
         self.prog["camera"].value = kwargs["camera"].as_vec4()
         if "screen_size" in self.prog:
             self.prog["screen_size"].value = kwargs["screen_size"]
+        if "u_time" in self.prog:
+            self.prog["u_time"].value = kwargs["time"]
 
         tex_size = atlas.TEX_WIDTH, atlas.TEX_HEIGHT
         indices = np.array([0, 1, 2, 0, 2, 3], dtype="i4")
