@@ -30,4 +30,6 @@ class FogSystem(esper.Processor):
     def process(self, *args, **kwargs):
         if "u_time" in self.prog:
             self.prog["u_time"].value = kwargs["time"]
+        if "camera" in self.prog:
+            self.prog["camera"].value = kwargs["camera"].as_vec4()
         self.vao.render()
