@@ -98,14 +98,7 @@ vec3 fog(vec2 st) {
 
 void main() {
     vec2 pos = f_pos * camera.zw / camera.z;
-//    pos += mod(u_time, 10000.) * vec2(1., 0.2) * 0.1;
 
-
-    vec3 color = (fog(pos * 5.));
-
-
-//    fog *= vec3(0.5, 0.8, 0.7);
-//    float a = length(fog) * 0.5 + 0.2;
-//    a = smoothstep(0.0, 1.0, a);
+    vec3 color = (fog(pos * 5.)) * 3.* vec3(0.076, 0.218, 0.324);
     gl_FragColor = vec4(color, .3);
 }
