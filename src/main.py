@@ -31,7 +31,7 @@ class Window(moderngl_window.WindowConfig):
         self.world.add_processor(systems.MoveCameraSystem(), 3)
         self.world.add_processor(systems.ParallaxSystem(), 2)
         self.world.add_processor(systems.AnimationSystem(), 2)
-        self.world.add_processor(systems.DrawSpriteSystem(self.ctx, self), 1)
+        # self.world.add_processor(systems.DrawSpriteSystem(self.ctx, self), 1)
         self.world.add_processor(systems.FogSystem(self.ctx), 0)
         self.init_background()
         self.init_camera()
