@@ -33,7 +33,9 @@ vec2 skew (vec2 st) {
     return r;
 }
 
-vec3 noise(vec2 st) {
+
+/// Return a random value in [0,1]. This function is continuous.
+float noise(vec2 st) {
 
     st = skew(st);
     vec2 i = floor(st);
@@ -62,23 +64,48 @@ vec3 noise(vec2 st) {
     // https://en.wikipedia.org/wiki/Barycentric_coordinate_system#Conversion_between_barycentric_and_Cartesian_coordinates
     vec3 l = vec3(1. - u.x, u.x - u.y, u.y);
     float r = dot(t, l);
-    return vec3(.5*r + 0.5) ;
+    return .5*r + 0.5;
 }
 
+vec3 fog(vec2 st) {
+
+    vec3[5] colors = vec3[5](
+        vec3(0.22, 0.486, 0.302),
+        vec3(0.776, 0.792, 0.439),
+        vec3(0.443, 0.161, 0.255),
+        vec3(0.),
+        vec3(0.)
+    );
+
+    float amp = 1.;
+    float freq = 1.;
+
+    float gain = 0.4;
+    float lacunarity = 2.3;
+
+    int octaves = 3;
+    float f = 0;
+    for (int i = 0; i < octaves; ++i) {
+        f += noise(st * freq + u_time /4.) * amp;
+        amp *= gain;
+        freq *= lacunarity;
+    }
+
+    float amp_tot = (1. - pow(gain, octaves + 1.)) / (1. - gain);
+
+    return vec3(f / amp_tot);
+}
 
 void main() {
     vec2 pos = f_pos * camera.zw / camera.z;
-    pos += mod(u_time, 10000.) * vec2(1., 0.2) * 0.1;
+//    pos += mod(u_time, 10000.) * vec2(1., 0.2) * 0.1;
 
 
-    vec3 color = noise(pos * 13.);
+    vec3 color = (fog(pos * 5.));
 
-    vec3 c1 = vec3(1.0, 0.647, 0.0);
-    vec3 c2 = vec3(0.204, 0.725, 0.627);
-    vec3 c3 = vec3(0.78, 0.922, 0.463);
 
 //    fog *= vec3(0.5, 0.8, 0.7);
 //    float a = length(fog) * 0.5 + 0.2;
 //    a = smoothstep(0.0, 1.0, a);
-    gl_FragColor = vec4(color, 1.);
+    gl_FragColor = vec4(color, .3);
 }
