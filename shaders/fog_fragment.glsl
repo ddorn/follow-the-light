@@ -1,13 +1,9 @@
-#version 330
-
-in vec2 f_pos;
-uniform float u_time;
-uniform vec4 camera;
-
-
 #ifdef GL_ES
 precision mediump float;
 #endif
+
+uniform float u_time;
+uniform vec2 u_resolution;
 
 
 /// Return a determistic random value between 0 and 1.
@@ -40,7 +36,7 @@ float noise(vec2 st) {
     st = skew(st);
     vec2 i = floor(st);
     vec2 f = fract(st);
-    vec2 u = f*f*f*(f*(f*6.-15)+10);
+    vec2 u = f*f*f*(f*(f*6.-15.)+10.);
 
     // A random gradient for each corner of the simplex
     vec2 op = (f.y >= f.x) ? vec2(0.0, 1.0) : vec2(1.0, 0.0);
@@ -68,42 +64,33 @@ float noise(vec2 st) {
 }
 
 vec3 fog(vec2 st) {
-
-    vec3[5] colors = vec3[5](
-        vec3(0.22, 0.486, 0.302),
-        vec3(0.776, 0.792, 0.439),
-        vec3(0.443, 0.161, 0.255),
-        vec3(0.),
-        vec3(0.)
-    );
-
     float amp = 1.;
     float freq = 1.;
 
     float gain = 0.4;
     float lacunarity = 2.3;
 
-    int octaves = 3;
-    float f = 0;
+    const int octaves = 3;
+    float f = 0.;
     for (int i = 0; i < octaves; ++i) {
         f += noise(st * freq + u_time /4.) * amp;
         amp *= gain;
         freq *= lacunarity;
     }
 
-    float amp_tot = (1. - pow(gain, octaves + 1.)) / (1. - gain);
+    float amp_tot = (1. - pow(gain,float(octaves) + 1.)) / (1. - gain);
 
     return vec3(f / amp_tot);
 }
 
 void main() {
-    vec2 pos = f_pos * camera.zw / camera.z;
-    pos *= 8;
-    pos += vec2(-.5, 1.) * u_time / 3;
+    vec2 pos = gl_FragCoord.xy / u_resolution * u_resolution.x / u_resolution.y;
+    pos *= 8.;
+    pos += vec2(-.5, 1.) * u_time / 3.;
     vec3 color = (fog(pos * 5.)) * 3.* vec3(0.076, 0.218, 0.324);
 
-    float c1 = 10;
-    float c2 = 5;
+    float c1 = 10.;
+    float c2 = 5.;
     vec2 d1 = vec2(1) * u_time / 2. ;
     float d2 = u_time / 10.;
 
