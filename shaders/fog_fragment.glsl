@@ -98,7 +98,31 @@ vec3 fog(vec2 st) {
 
 void main() {
     vec2 pos = f_pos * camera.zw / camera.z;
-
+    pos *= 8;
+    pos += vec2(-.5, 1.) * u_time / 3;
     vec3 color = (fog(pos * 5.)) * 3.* vec3(0.076, 0.218, 0.324);
-    gl_FragColor = vec4(color, .3);
+
+    float c1 = 10;
+    float c2 = 5;
+    vec2 d1 = vec2(1) * u_time / 2. ;
+    float d2 = u_time / 10.;
+
+    float f = noise(pos.yx + d1 + c1 * noise(pos + d2 + c2 * noise(pos)));
+
+    vec3 a = vec3(0.0);
+    vec3 b = vec3(0.3, 0.1, 0.2);
+    vec3 c = vec3(0.22, 0.741, 0.616);
+    vec3 d = vec3(0.965, 0.971, 0.349);
+
+    vec3 p = vec3(0.4, 0.6, 0.7);
+
+    if (f < p.x) {
+        color = mix(a, b, f);
+    } else if (f < p.y) {
+        color = mix(b, c, smoothstep(p.x, p.y, f));
+    } else {
+        color = mix(c, d, smoothstep(p.y, p.z, f));
+    }
+
+    gl_FragColor = vec4(color, 1.) ;
 }
