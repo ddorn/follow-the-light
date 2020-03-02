@@ -72,10 +72,15 @@ float fog(vec2 st) {
 
     const int octaves = 3;
     float f = 0.;
+
+    mat2 rot = mat2(cos(0.5), sin(0.5),
+                    -sin(0.5), cos(0.50));
+
     for (int i = 0; i < octaves; ++i) {
         f += noise(st * freq + u_time /4.) * amp;
         amp *= gain;
         freq *= lacunarity;
+        st = rot * st;
     }
 
     float amp_tot = (1. - pow(gain,float(octaves) + 1.)) / (1. - gain);
