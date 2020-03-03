@@ -1,31 +1,20 @@
-#!/usr/bin/env python3
-from typing import Any
+from time import time
 
 import esper
-import moderngl
-import moderngl_window
-from moderngl_window.context.base import KeyModifiers
+import pygame
 
 from src import systems
 from src.atlas import Sprite, Anim
 from src.camera import Camera
 from src.components import Pos, Parallax, Player, Animation
-from src.paths import ASSETS_DIR
+from src.ui import BaseWindow
 
 
-class Window(moderngl_window.WindowConfig):
-    gl_version = (3, 3)
-    window_size = (650, 650*9//16)
+class Window(BaseWindow):
     # window_size = (384, 216)
-    resource_dir = ASSETS_DIR
-    title = "Follow the light"
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
-        # Set up options on the opengl context
-        self.ctx.enable(moderngl.BLEND)
-        # self.ctx.enable(moderngl.DEPTH_TEST)
+        super().__init__()
 
         # Set up the world for all our entities
         self.world = esper.World()
@@ -84,12 +73,10 @@ class Window(moderngl_window.WindowConfig):
             time=time,
             frame_time=frame_time,
             camera=self.camera,
-            screen_size=self.wnd.size,
+            screen_size=self.window_size,  # TODO: should be real window size
         )
 
-    def key_event(self, key: Any, action: Any, modifiers: KeyModifiers):
-        super().key_event(key, action, modifiers)
 
 
-if __name__ == "__main__":
-    moderngl_window.run_window_config(Window)
+if __name__ == '__main__':
+    Window().run()
