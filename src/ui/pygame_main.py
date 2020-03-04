@@ -8,6 +8,7 @@ from src.atlas import Sprite, Anim
 from src.camera import Camera
 from src.components import Pos, Parallax, Player, Animation
 from src.ui import BaseWindow
+from src.ui.inputs import Inputs, Axis
 
 
 class Window(BaseWindow):
@@ -19,14 +20,21 @@ class Window(BaseWindow):
         # Set up the world for all our entities
         self.world = esper.World()
         # High numbers first
+        self.world.add_processor(systems.PlayerHorizontalMoveSystem())
         self.world.add_processor(systems.MoveCameraSystem(), 3)
         self.world.add_processor(systems.ParallaxSystem(), 2)
         self.world.add_processor(systems.AnimationSystem(), 2)
         self.world.add_processor(systems.DrawSpriteSystem(self.ctx, self), 1)
         self.world.add_processor(systems.FogSystem(self.ctx), 0)
         self.init_background()
-        self.init_camera()
+        self.camera = self.init_camera()
+        self.inputs = self.init_inputs()
         self.init_player()
+
+    def handle_event(self, event):
+        super().handle_event(event)
+
+        self.inputs.update(event)
 
     def init_background(self):
         layers = [
@@ -57,7 +65,12 @@ class Window(BaseWindow):
 
     def init_camera(self):
         size = self.window_size
-        self.camera = Camera((size[0] / 2, size[1] / 2), size)
+        return Camera((size[0] / 2, size[1] / 2), size)
+
+    def init_inputs(self):
+        return Inputs(
+            horizontal=Axis(pygame.K_a, pygame.K_d)
+        )
 
     def init_player(self):
         size = self.window_size
@@ -74,8 +87,8 @@ class Window(BaseWindow):
             frame_time=frame_time,
             camera=self.camera,
             screen_size=self.window_size,  # TODO: should be real window size
+            inputs=self.inputs,
         )
-
 
 
 if __name__ == '__main__':

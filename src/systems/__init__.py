@@ -3,3 +3,4 @@ from .move_camera_system import MoveCameraSystem
 from .parallax_system import ParallaxSystem
 from .animation_system import AnimationSystem
 from .fog_system import FogSystem
+from .player_horizontal_move_system import PlayerHorizontalMoveSystem
