@@ -16,7 +16,9 @@ class BaseWindow:
 
     def __init__(self):
         # Set up the window
-        self.display = pygame.display.set_mode(self.window_size, pygame.OPENGL | pygame.DOUBLEBUF | pygame.RESIZABLE)
+        self.display = pygame.display.set_mode(
+            self.window_size, pygame.OPENGL | pygame.DOUBLEBUF | pygame.RESIZABLE
+        )
         pygame.display.set_caption(self.title)
 
         # Set up the ctx
@@ -46,12 +48,16 @@ class BaseWindow:
             self.resize(event.size)
 
     def resize(self, new_size):
-        pygame.display.set_mode(new_size, pygame.OPENGL | pygame.DOUBLEBUF | pygame.RESIZABLE)
+        pygame.display.set_mode(
+            new_size, pygame.OPENGL | pygame.DOUBLEBUF | pygame.RESIZABLE
+        )
         self.window_size = new_size
         self.set_view_port()
 
     def load_texture_2d(self, path, flip=True):
-        img: Image.Image = Image.open(os.path.join(self.resource_dir, path)).convert('RGBA')
+        img: Image.Image = Image.open(os.path.join(self.resource_dir, path)).convert(
+            "RGBA"
+        )
         if flip:
             img = img.transpose(Image.FLIP_TOP_BOTTOM)
         tex = self.ctx.texture(img.size, 4, img.tobytes())
@@ -66,7 +72,7 @@ class BaseWindow:
                 self.handle_event(event)
 
             self.ctx.clear()
-            self.render(time() - self.start_time, clock.get_time() / 1000.)
+            self.render(time() - self.start_time, clock.get_time() / 1000.0)
 
             pygame.display.flip()
             frames += 1
@@ -89,6 +95,5 @@ class BaseWindow:
             blank_space_x // 2,
             blank_space_y // 2,
             expected_width,
-            expected_height
+            expected_height,
         )
-

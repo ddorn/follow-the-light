@@ -63,6 +63,7 @@ class Axis(BaseInput):
         else:
             return 0.0
 
+
 class Inputs:
     def __init__(self, **inputs):
         self.inputs: Dict[str, BaseInput] = inputs
