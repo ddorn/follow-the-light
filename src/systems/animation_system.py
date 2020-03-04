@@ -1,6 +1,6 @@
 from esper import Processor, World
 
-from src.atlas import Sprite
+from src.graphism.atlas import Sprite
 from src.components import Animation
 
 

@@ -5,8 +5,8 @@ import moderngl
 import moderngl_window
 import numpy as np
 
-from src import shaders, atlas
-from src.atlas import Sprite
+from src.graphism import atlas, shaders
+from src.graphism.atlas import Sprite
 from src.components import Pos
 
 

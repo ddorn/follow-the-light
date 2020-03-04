@@ -6,7 +6,7 @@ since the logic is performed by the systems.
 """
 from dataclasses import dataclass
 
-from src.atlas import Anim
+from src.graphism.atlas import Anim
 
 
 @dataclass

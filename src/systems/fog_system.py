@@ -2,7 +2,7 @@ import esper
 import moderngl
 import numpy as np
 
-from src import shaders
+from src.graphism import shaders
 
 
 class FogSystem(esper.Processor):

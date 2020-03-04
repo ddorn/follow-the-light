@@ -1,7 +1,7 @@
 import esper
 
-from src import atlas
-from src.atlas import Sprite
+from src.graphism import atlas
+from src.graphism.atlas import Sprite
 from src.components import Parallax, Pos
 
 

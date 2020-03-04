@@ -1,10 +1,8 @@
-from time import time
-
 import esper
 import pygame
 
 from src import systems
-from src.atlas import Sprite, Anim
+from src.graphism.atlas import Sprite, Anim
 from src.camera import Camera
 from src.components import Pos, Parallax, Player, Animation
 from src.ui import BaseWindow
