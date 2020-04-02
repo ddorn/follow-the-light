@@ -1,8 +1,0 @@
-moderngl
-numpy
-esper
-rectpack
-pillow
-click
-scipy
-pygame==2.0.0.dev6
