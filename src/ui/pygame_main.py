@@ -66,7 +66,7 @@ class Window(BaseWindow):
         return Camera((size[0] / 2, size[1] / 2), size)
 
     def init_inputs(self):
-        return Inputs(horizontal=Axis(pygame.K_a, pygame.K_d))
+        return Inputs(horizontal=Axis([pygame.K_a, pygame.K_LEFT], [pygame.K_d, pygame.K_RIGHT]))
 
     def init_player(self):
         size = self.window_size
