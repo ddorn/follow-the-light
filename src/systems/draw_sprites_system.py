@@ -2,7 +2,6 @@ import struct
 
 import esper
 import moderngl
-import moderngl_window
 import numpy as np
 
 from src.graphism import atlas, shaders
@@ -17,7 +16,7 @@ class DrawSpriteSystem(esper.Processor):
     world: esper.World
 
     def __init__(
-        self, ctx: moderngl.Context, window_conf: moderngl_window.WindowConfig
+        self, ctx: moderngl.Context, window_conf
     ):
         self.prog = shaders.load_shader("texture", ctx)
         self.prog["tex_size"].value = (atlas.TEX_WIDTH, atlas.TEX_HEIGHT)

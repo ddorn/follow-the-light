@@ -1,12 +1,12 @@
 import esper
 import pygame
+from pygame_input import Inputs, Axis, JoyAxis
 
 from src import systems
 from src.graphism.atlas import Sprite, Anim
 from src.camera import Camera
 from src.components import Pos, Parallax, Player, Animation
 from src.ui import BaseWindow
-from src.ui.inputs import Inputs, Axis
 
 
 class Window(BaseWindow):
@@ -18,7 +18,7 @@ class Window(BaseWindow):
         # Set up the world for all our entities
         self.world = esper.World()
         # High numbers first
-        self.world.add_processor(systems.PlayerHorizontalMoveSystem())
+        self.world.add_processor(systems.PlayerMoveSystem())
         self.world.add_processor(systems.MoveCameraSystem(), 3)
         self.world.add_processor(systems.ParallaxSystem(), 2)
         self.world.add_processor(systems.AnimationSystem(), 2)
@@ -29,10 +29,10 @@ class Window(BaseWindow):
         self.inputs = self.init_inputs()
         self.init_player()
 
-    def handle_event(self, event):
-        super().handle_event(event)
+    def handle_events(self, events):
+        super().handle_events(events)
 
-        self.inputs.update(event)
+        self.inputs.trigger(events)
 
     def init_background(self):
         layers = [
@@ -66,7 +66,23 @@ class Window(BaseWindow):
         return Camera((size[0] / 2, size[1] / 2), size)
 
     def init_inputs(self):
-        return Inputs(horizontal=Axis([pygame.K_a, pygame.K_LEFT], [pygame.K_d, pygame.K_RIGHT]))
+        pygame.joystick.init()
+        for i in range(pygame.joystick.get_count()):
+            pygame.joystick.Joystick(i).init()
+
+        inputs = Inputs()
+        inputs["hmove"] = Axis(
+            (pygame.K_LEFT, pygame.K_a),
+            (pygame.K_RIGHT, pygame.K_d),
+            JoyAxis(0)
+        )
+        inputs["vmove"] = Axis(
+            (pygame.K_DOWN, pygame.K_s),
+            (pygame.K_UP, pygame.K_w),
+            JoyAxis(1, reversed=True)
+        )
+
+        return inputs
 
     def init_player(self):
         size = self.window_size

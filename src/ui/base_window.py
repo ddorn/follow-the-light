@@ -38,14 +38,15 @@ class BaseWindow:
     def render(self, *args):
         pass
 
-    def handle_event(self, event):
-        if event.type == pygame.QUIT:
-            self.stop()
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
+    def handle_events(self, events):
+        for event in events:
+            if event.type == pygame.QUIT:
                 self.stop()
-        elif event.type == pygame.VIDEORESIZE:
-            self.resize(event.size)
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    self.stop()
+            elif event.type == pygame.VIDEORESIZE:
+                self.resize(event.size)
 
     def resize(self, new_size):
         pygame.display.set_mode(
@@ -68,8 +69,7 @@ class BaseWindow:
 
         frames = 0
         while self.running:
-            for event in pygame.event.get():
-                self.handle_event(event)
+            self.handle_events(list(pygame.event.get()))
 
             self.ctx.clear()
             self.render(time() - self.start_time, clock.get_time() / 1000.0)

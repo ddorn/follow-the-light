@@ -1,5 +1,5 @@
 [[package]]
-category = "main"
+category = "dev"
 description = "Python command-line parsing library"
 name = "argparse"
 optional = false
@@ -31,7 +31,7 @@ python-versions = "*"
 version = "2.1.0"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Backports of the linecache module"
 name = "linecache2"
 optional = false
@@ -50,7 +50,7 @@ version = "5.6.0"
 glcontext = ">1,<3"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "nose extends unittest to make testing easier"
 name = "nose"
 optional = false
@@ -66,7 +66,7 @@ python-versions = ">=3.5"
 version = "1.18.2"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Python Imaging Library (Fork)"
 name = "pillow"
 optional = false
@@ -83,6 +83,17 @@ version = "2.0.0.dev6"
 
 [[package]]
 category = "main"
+description = "pygame-input is a tool to simplify input handling with pygame"
+name = "pygame-input"
+optional = false
+python-versions = ">=3.6,<4.0"
+version = "1.0.0"
+
+[package.dependencies]
+pygame = ">=1.9.0,<2.0.0"
+
+[[package]]
+category = "dev"
 description = "A collection of heuristic algorithms for solving the 2D knapsack problem,"
 name = "rectpack"
 optional = false
@@ -105,7 +116,7 @@ version = "1.4.1"
 numpy = ">=1.13.3"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Python 2 and 3 compatibility utilities"
 name = "six"
 optional = false
@@ -113,7 +124,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 version = "1.14.0"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Backports of the traceback module"
 name = "traceback2"
 optional = false
@@ -124,7 +135,7 @@ version = "1.4.0"
 linecache2 = "*"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "The new features in unittest backported to Python 2.4+."
 name = "unittest2"
 optional = false
@@ -137,7 +148,7 @@ six = ">=1.4"
 traceback2 = "*"
 
 [metadata]
-content-hash = "7f09acb8e112b1efe1fb8b7d88101324f64be4fa68e6c72118f60e2877f1566e"
+content-hash = "9d4dddbb95646af07080cb2044ecfab756418a34ed41d76029453a0f9cce862c"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -290,6 +301,10 @@ pygame = [
     {file = "pygame-2.0.0.dev6-py3.7-macosx-10.11-x86_64.egg", hash = "sha256:46211c0e87486c70a272246087bb8c221f546f0a5d258e7e722372de3bbfb887"},
     {file = "pygame-2.0.0.dev6-py3.8-linux-x86_64.egg", hash = "sha256:a6c4ebb9a8c5dfa5ad8547a78b34550c2968a1ab2fe0c29a5af2e71d53a1da6b"},
     {file = "pygame-2.0.0.dev6.tar.gz", hash = "sha256:8cf102e4b7ff37e6303b310ec38585a153a31c1eed3b5ceeae0df6f01d35ae01"},
+]
+pygame-input = [
+    {file = "pygame-input-1.0.0.tar.gz", hash = "sha256:cccfc4d1662fcd797c883d06e0ad92b3948fc3492750a7ab8da70d2154f7962c"},
+    {file = "pygame_input-1.0.0-py3-none-any.whl", hash = "sha256:6c4fd882f2d2fd929283d4cb7f92cba987118a59275feb144c47f183d49dd710"},
 ]
 rectpack = [
     {file = "rectpack-0.2.1.tar.gz", hash = "sha256:473f799e097e2b958ee660e1559fb4e50a800eb0b4f455d4ec7836ab4c3fe849"},
