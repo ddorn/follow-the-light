@@ -4,6 +4,7 @@ This files contains all the components of Follow the Light.
 They are only data structures with no logic,
 since the logic is performed by the systems.
 """
+from collections import defaultdict
 from dataclasses import dataclass
 
 from src.graphism.atlas import Anim
@@ -54,3 +55,18 @@ class Animation:
 
     def advance(self, n=1):
         self.index = (self.index + n) % len(self.anim.value)
+
+
+class Buffs(defaultdict):
+    """
+    Buffs is a component that stores the time left for each buff.
+
+    >>> buffs = Buffs()
+    >>> buffs["invincible"] = 1.0  # One second of invicibility
+    >>> buffs["no-attack"] += 0.1  # Add one second without attack
+
+    When the time for a buff is 0.0, the buff is not active anymore,
+    even though the entry is still there.
+    """
+    def __init__(self):
+        super().__init__(float)

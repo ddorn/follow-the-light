@@ -17,8 +17,9 @@ class Window(BaseWindow):
 
         # Set up the world for all our entities
         self.world = esper.World()
-        # High numbers first
-        self.world.add_processor(systems.PlayerMoveSystem())
+        # High numbers are processed first
+        self.world.add_processor(systems.BuffSystem(), 5)
+        self.world.add_processor(systems.PlayerMoveSystem(), 4)
         self.world.add_processor(systems.MoveCameraSystem(), 3)
         self.world.add_processor(systems.ParallaxSystem(), 2)
         self.world.add_processor(systems.AnimationSystem(), 2)
