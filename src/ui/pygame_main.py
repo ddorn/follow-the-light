@@ -22,6 +22,7 @@ class Window(BaseWindow):
         # High numbers are processed first
         self.world.add_processor(systems.UpdateBundle(), 10)
         self.world.add_processor(systems.RenderBundle(self), 0)
+
         self.init_background()
         self.camera = self.init_camera()
         self.inputs = self.init_inputs()
