@@ -64,6 +64,37 @@ class Processor:
     def process(self, *args, **kwargs):
         raise NotImplementedError
 
+class ProcessorBundle(Processor):
+    def __init__(self):
+        self._processors = []
+
+    def add_processor(self, processor_instance: Processor, priority=0) -> None:
+        """Add a Processor instance to the Bundle.
+
+        :param processor_instance: An instance of a Processor,
+               subclassed from the Processor class
+        :param priority: A higher number is processed first.
+        """
+        assert issubclass(processor_instance.__class__, Processor)
+        processor_instance.priority = priority
+        processor_instance.world = self
+        self._processors.append(processor_instance)
+        self._processors.sort(key=lambda proc: proc.priority, reverse=True)
+
+    def remove_processor(self, processor_type: Processor) -> None:
+        """Remove a Processor from the Bundle, by type.
+
+        :param processor_type: The class type of the Processor to remove.
+        """
+        for processor in self._processors:
+            if type(processor) == processor_type:
+                processor.world = None
+                self._processors.remove(processor)
+
+    def process(self, *args, **kwargs):
+        for processor in self._processors:
+            processor.process(*args, **kwargs)
+
 
 class World:
     """A World object keeps track of all Entities, Components, and Processors.
