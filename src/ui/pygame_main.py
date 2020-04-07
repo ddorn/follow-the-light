@@ -5,7 +5,9 @@ from pygame_input import Inputs, Axis, JoyAxis
 from src import systems
 from src.graphism.atlas import Sprite, Anim
 from src.camera import Camera
-from src.components import Pos, Parallax, Player, Animation
+from src.components import Pos, Parallax, Player, Animation, Buffs, Vel, Collisions
+from src.systems.state_machine.base import StateMachine
+from src.systems.state_machine.movement_machine import GroundedState
 from src.ui import BaseWindow
 
 
@@ -19,7 +21,10 @@ class Window(BaseWindow):
         self.world = esper.World()
         # High numbers are processed first
         self.world.add_processor(systems.BuffSystem(), 6)
+        self.world.add_processor(systems.InputSystem(), 5.5)
         self.world.add_processor(systems.StateMachineSystem(), 5)
+        self.world.add_processor(systems.UpdatePositionSystem(), 4)
+        self.world.add_processor(systems.CollisionSystem(), 3.5)
         self.world.add_processor(systems.MoveCameraSystem(), 3)
         self.world.add_processor(systems.ParallaxSystem(), 2)
         self.world.add_processor(systems.AnimationSystem(), 2)
@@ -88,7 +93,11 @@ class Window(BaseWindow):
         self.world.create_entity(
             Player(),
             Pos(size[0] / 2, size[1] / 2, 0),
+            Vel(0, 0, 0),
             Animation(Anim.ADVENTURER_ATTACK2, 5 / 60),
+            StateMachine(GroundedState()),
+            Buffs(),
+            Collisions()
         )
 
     def render(self, time: float, frame_time: float):

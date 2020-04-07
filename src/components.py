@@ -25,6 +25,16 @@ class Vec3:
         x, y, z = other
         return self.__class__(self.x + x, self.y + y, self.z + z)
 
+    def __mul__(self, a):
+        return self.__class__(self.x * a, self.y * a, self.z * a)
+
+    def __iadd__(self, other):
+        x, y, z = other
+        self.x += x
+        self.y += y
+        self.z += z
+        return self
+
 
 class Pos(Vec3):
     pass
@@ -83,3 +93,11 @@ class Buffs(defaultdict):
 
     def __init__(self):
         super().__init__(float)
+
+
+@dataclass
+class Collisions:
+    left: bool = False
+    right: bool = False
+    top: bool = False
+    bottom: bool = False

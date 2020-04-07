@@ -1,4 +1,6 @@
-PLAYER_SPEED = 5.0
+PLAYER_SPEED = 300.0
+INPUT_MAX_DELAY = 0.005
+
 WANT_JUMP = "want-jump"
 WANT_LEFT = "want-left"
 WANT_RIGHT = "want-right"
