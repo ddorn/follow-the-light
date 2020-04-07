@@ -20,7 +20,6 @@ class Window(BaseWindow):
         # High numbers are processed first
         self.world.add_processor(systems.BuffSystem(), 6)
         self.world.add_processor(systems.StateMachineSystem(), 5)
-        self.world.add_processor(systems.PlayerMoveSystem(), 4)
         self.world.add_processor(systems.MoveCameraSystem(), 3)
         self.world.add_processor(systems.ParallaxSystem(), 2)
         self.world.add_processor(systems.AnimationSystem(), 2)
