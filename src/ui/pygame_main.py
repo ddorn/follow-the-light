@@ -1,4 +1,3 @@
-import esper
 import pygame
 from pygame_input import Inputs, Axis, JoyAxis
 
@@ -9,6 +8,7 @@ from src.components import Pos, Parallax, Player, Animation, Buffs, Vel, Collisi
 from src.systems.state_machine.base import StateMachine
 from src.systems.state_machine.movement_machine import GroundedState
 from src.ui import BaseWindow
+from src import esper
 
 
 class Window(BaseWindow):
@@ -97,7 +97,7 @@ class Window(BaseWindow):
             Animation(Anim.ADVENTURER_ATTACK2, 5 / 60),
             StateMachine(GroundedState()),
             Buffs(),
-            Collisions()
+            Collisions(),
         )
 
     def render(self, time: float, frame_time: float):

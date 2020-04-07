@@ -1,11 +1,8 @@
-import esper
-
+from src import esper
 from src.systems.state_machine.base import StateMachine
 
 
 class StateMachineSystem(esper.Processor):
-    world: esper.World
-
     def process(self, *args, **kwargs):
 
         for e, sm in self.world.get_component(StateMachine):

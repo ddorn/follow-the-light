@@ -1,13 +1,12 @@
-import esper
 
+
+from src import esper
 from src.graphism import atlas
 from src.graphism.atlas import Sprite
 from src.components import Parallax, Pos
 
 
 class ParallaxSystem(esper.Processor):
-    world: esper.World
-
     def process(self, *args, **kwargs):
         camera = kwargs["camera"]
         time = kwargs["time"]

@@ -1,6 +1,6 @@
-from esper import Processor, World
 
 from src.components import Buffs
+from src.esper import Processor, World
 
 
 class BuffSystem(Processor):

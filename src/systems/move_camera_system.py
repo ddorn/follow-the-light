@@ -1,6 +1,6 @@
 from math import cos, sin
 
-import esper
+from src import esper
 
 
 class MoveCameraSystem(esper.Processor):

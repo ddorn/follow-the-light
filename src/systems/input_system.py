@@ -1,8 +1,9 @@
-from esper import Processor, World
 from pygame_input import Inputs
 
 from src.components import Buffs, Player
+from src.esper import Processor, World
 from src.locals.constants import *
+
 
 class InputSystem(Processor):
     """

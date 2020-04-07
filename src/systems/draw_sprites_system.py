@@ -1,9 +1,9 @@
 import struct
 
-import esper
 import moderngl
 import numpy as np
 
+from src import esper
 from src.graphism import atlas, shaders
 from src.graphism.atlas import Sprite
 from src.components import Pos

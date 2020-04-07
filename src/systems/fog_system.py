@@ -1,7 +1,7 @@
-import esper
 import moderngl
 import numpy as np
 
+from src import esper
 from src.graphism import shaders
 
 
