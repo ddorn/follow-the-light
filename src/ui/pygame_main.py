@@ -74,14 +74,12 @@ class Window(BaseWindow):
 
         inputs = Inputs()
         inputs["hmove"] = Axis(
-            (pygame.K_LEFT, pygame.K_a),
-            (pygame.K_RIGHT, pygame.K_d),
-            JoyAxis(0)
+            (pygame.K_LEFT, pygame.K_a), (pygame.K_RIGHT, pygame.K_d), JoyAxis(0)
         )
         inputs["vmove"] = Axis(
             (pygame.K_DOWN, pygame.K_s),
             (pygame.K_UP, pygame.K_w),
-            JoyAxis(1, reversed=True)
+            JoyAxis(1, reversed=True),
         )
 
         return inputs

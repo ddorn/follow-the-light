@@ -8,7 +8,6 @@ from src.systems.state_machine.base import State
 
 
 class JumpState(State):
-
     def next_state(self, entity: int, world: World) -> Optional["State"]:
         buffs = world.component_for_entity(entity, Buffs)
         vel = world.component_for_entity(entity, Vel)
@@ -38,7 +37,6 @@ class JumpState(State):
 
 
 class FallState(State):
-
     def next_state(self, entity: int, world: World) -> Optional["State"]:
         buffs = world.component_for_entity(entity, Buffs)
 
@@ -64,7 +62,6 @@ class FallState(State):
 
 
 class GroundedState(State):
-
     def next_state(self, entity: int, world: World) -> Optional["State"]:
         buffs = world.component_for_entity(entity, Buffs)
 

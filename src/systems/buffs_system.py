@@ -14,4 +14,3 @@ class BuffSystem(Processor):
         for e, buffs in self.world.get_component(Buffs):
             for key, value in buffs.items():
                 buffs[key] = max(0.0, value - frame_time)
-
