@@ -67,6 +67,17 @@ class Processor:
 class ProcessorBundle(Processor):
     def __init__(self):
         self._processors = []
+        self._world = None
+
+    @property
+    def world(self):
+        return self._world
+
+    @world.setter
+    def world(self, value):
+        self._world = value
+        for proc in self._processors:
+            proc.world = value
 
     def add_processor(self, processor_instance: Processor, priority=0) -> None:
         """Add a Processor instance to the Bundle.
@@ -77,7 +88,7 @@ class ProcessorBundle(Processor):
         """
         assert issubclass(processor_instance.__class__, Processor)
         processor_instance.priority = priority
-        processor_instance.world = self
+        processor_instance.world = self.world
         self._processors.append(processor_instance)
         self._processors.sort(key=lambda proc: proc.priority, reverse=True)
 

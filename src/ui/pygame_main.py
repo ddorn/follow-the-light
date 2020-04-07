@@ -20,16 +20,8 @@ class Window(BaseWindow):
         # Set up the world for all our entities
         self.world = esper.World()
         # High numbers are processed first
-        self.world.add_processor(systems.BuffSystem(), 6)
-        self.world.add_processor(systems.InputSystem(), 5.5)
-        self.world.add_processor(systems.StateMachineSystem(), 5)
-        self.world.add_processor(systems.UpdatePositionSystem(), 4)
-        self.world.add_processor(systems.CollisionSystem(), 3.5)
-        self.world.add_processor(systems.MoveCameraSystem(), 3)
-        self.world.add_processor(systems.ParallaxSystem(), 2)
-        self.world.add_processor(systems.AnimationSystem(), 2)
-        self.world.add_processor(systems.DrawSpriteSystem(self.ctx, self), 1)
-        self.world.add_processor(systems.FogSystem(self.ctx), 0)
+        self.world.add_processor(systems.UpdateBundle(), 10)
+        self.world.add_processor(systems.RenderBundle(self), 0)
         self.init_background()
         self.camera = self.init_camera()
         self.inputs = self.init_inputs()
