@@ -18,7 +18,8 @@ class Window(BaseWindow):
         # Set up the world for all our entities
         self.world = esper.World()
         # High numbers are processed first
-        self.world.add_processor(systems.BuffSystem(), 5)
+        self.world.add_processor(systems.BuffSystem(), 6)
+        self.world.add_processor(systems.StateMachineSystem(), 5)
         self.world.add_processor(systems.PlayerMoveSystem(), 4)
         self.world.add_processor(systems.MoveCameraSystem(), 3)
         self.world.add_processor(systems.ParallaxSystem(), 2)
@@ -59,7 +60,7 @@ class Window(BaseWindow):
         for i, sprite in enumerate(layers):
             for side in (True, False):
                 self.world.create_entity(
-                    sprite, Pos(0, 0, i / 7 - 1), Parallax(side, -i * 5)
+                    sprite, Pos(0, 0, i / len(layers) - 1), Parallax(side, -i * 5)
                 )
 
     def init_camera(self):

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 if [ $1 = "run" ]; then
-	MESA_GL_VERSION_OVERRIDE=3.3 PYTHONPATH=. venv/bin/python src/__main__.py
+	MESA_GL_VERSION_OVERRIDE=3.3 PYTHONPATH=. python src/__main__.py
 elif [ $1 = "fmt" ]; then
 	black . --exclude src/graphism/atlas.py
 elif [ $1 = "regen-atlas" ]; then

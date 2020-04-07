@@ -11,7 +11,7 @@ from src.graphism.atlas import Anim
 
 
 @dataclass
-class Pos:
+class Vec3:
     x: float
     y: float
     z: float
@@ -23,7 +23,19 @@ class Pos:
 
     def __add__(self, other):
         x, y, z = other
-        return Pos(self.x + x, self.y + y, self.z + z)
+        return self.__class__(self.x + x, self.y + y, self.z + z)
+
+
+class Pos(Vec3):
+    pass
+
+
+class Vel(Vec3):
+    pass
+
+
+class Acc(Vec3):
+    pass
 
 
 @dataclass
@@ -68,5 +80,6 @@ class Buffs(defaultdict):
     When the time for a buff is 0.0, the buff is not active anymore,
     even though the entry is still there.
     """
+
     def __init__(self):
         super().__init__(float)

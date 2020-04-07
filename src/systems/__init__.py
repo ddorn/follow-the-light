@@ -5,3 +5,5 @@ from .parallax_system import ParallaxSystem
 from .animation_system import AnimationSystem
 from .fog_system import FogSystem
 from .player_move_system import PlayerMoveSystem
+from .state_machine_system import StateMachineSystem
+
