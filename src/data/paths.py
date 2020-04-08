@@ -1,6 +1,6 @@
 from pathlib import Path
 
-TOP_LEVEL_DIR = Path(__file__).parent.parent
+TOP_LEVEL_DIR = Path(__file__).parent.parent.parent
 SHADERS_DIR = TOP_LEVEL_DIR / "src" / "render" / "shaders"
 ASSETS_DIR = TOP_LEVEL_DIR / "assets"
 
