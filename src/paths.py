@@ -1,8 +1,8 @@
-from os import path
+from pathlib import Path
 
-TOP_LEVEL_DIR = path.dirname(path.dirname(path.abspath(__file__)))
-SHADERS_DIR = path.join(TOP_LEVEL_DIR, "shaders")
-ASSETS_DIR = path.join(TOP_LEVEL_DIR, "assets")
+TOP_LEVEL_DIR = Path(__file__).parent.parent
+SHADERS_DIR = TOP_LEVEL_DIR / "shaders"
+ASSETS_DIR = TOP_LEVEL_DIR / "assets"
 
 print("Top level:", TOP_LEVEL_DIR)
 print("Assets :", ASSETS_DIR)
