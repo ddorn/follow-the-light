@@ -2,12 +2,11 @@ import pygame
 from pygame_input import Inputs, Axis, JoyAxis
 
 from src import esper, logic, render
-from src.camera import Camera
 from src.data.atlas import Sprite, Anim
 from src.logic.components import Pos, Player, Buffs, Vel, Collisions
 from src.logic.state_machine import GroundedState, JumpState, FallState
 from src.logic.state_machine.base import StateMachine
-from src.render.components import Parallax, Animation, StateToAnimation
+from src.render.components import Parallax, Animation, StateToAnimation, Camera
 
 
 class Window(render.BaseWindow):
