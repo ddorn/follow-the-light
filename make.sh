@@ -5,7 +5,7 @@ if [ $1 = "run" ]; then
 elif [ $1 = "fmt" ]; then
 	black . --exclude src/data/atlas.py
 elif [ $1 = "regen-atlas" ]; then
-	venv/bin/python assets/gen_atlas.py assets/player/*.png assets/background/*/*.png --extrude=2 --py-out=src/data/atlas.py --img-out=assets/atlas.png --trim --fix-alpha
+	python assets/gen_atlas.py assets/player/*.png assets/background/*/*.png --extrude=2 --py-out=src/data/atlas.py --img-out=assets/atlas.png --trim --fix-alpha
 else
 	echo "USAGE: make.sh [run|fmt|regen-atlas]"
 fi

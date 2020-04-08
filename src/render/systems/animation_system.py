@@ -1,6 +1,6 @@
-from src.render.components import Animation
+from src.render.components import Animation, Sprite
 from src.esper import Processor, World
-from src.data.atlas import Sprite
+from src.data.atlas import SpriteID
 
 
 class AnimationSystem(Processor):
@@ -14,4 +14,5 @@ class AnimationSystem(Processor):
         for e, anim in self.world.get_component(Animation):
             if anim.update(dt):
                 anim.advance(1)
-                self.world.add_component(e, Sprite(anim.anim.value[anim.index]))
+                id = anim.cur_sprite_id
+                self.world.add_component(e, Sprite(SpriteID(id)))

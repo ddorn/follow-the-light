@@ -5,6 +5,7 @@ All the systems needed to render the game with moderngl.
 from src.esper import ProcessorBundle
 from .animation_system import AnimationSystem
 from .draw_sprites_system import DrawSpriteSystem
+from .flip_sprite_system import FlipSpriteSystem
 from .fog_system import FogSystem
 from .move_camera_system import MoveCameraSystem
 from .parallax_system import ParallaxSystem
@@ -21,5 +22,6 @@ class RenderBundle(ProcessorBundle):
         self.add_processor(SelectAnimationSystem(), 3)
         self.add_processor(ParallaxSystem(), 2)
         self.add_processor(AnimationSystem(), 2)
+        self.add_processor(FlipSpriteSystem(), 1.5)
         self.add_processor(DrawSpriteSystem(window.ctx, window), 1)
         self.add_processor(FogSystem(window.ctx), 0)

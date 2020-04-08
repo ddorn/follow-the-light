@@ -6,9 +6,8 @@ import numpy as np
 from src import esper
 from src.data import atlas
 from src.render import shaders
-from src.data.atlas import Sprite
 from src.logic.components import Pos
-
+from src.render.components import Sprite, Flip
 
 BUFFER_SIZE = 100
 
@@ -55,7 +54,7 @@ class DrawSpriteSystem(esper.Processor):
 
             # We compute the xyz coordinates of each point and the uv coordinate
             # in the texture
-            points = self.points(pos, atlas.RECTS[sprite.value], tex_size)
+            points = self.points(pos, sprite)
 
             bytes = struct.pack("20f", *points)
             self.vbo.write(bytes, offset=qte * len(bytes))
@@ -69,21 +68,32 @@ class DrawSpriteSystem(esper.Processor):
 
         self.vao.render()
 
-    def points(self, xyz, sprite, tex_size):
-        x, y, z = xyz
-        u, v, w, h, x_off, y_off, w_orig, h_orig = sprite
-        tw, th = tex_size
+    def points(self, xyz, sprite: Sprite):
 
-        x += x_off - w_orig / 2
-        y += y_off - h_orig / 2
+        x, y, z = xyz
+        u, v, w, h, x_off, y_off, w_orig, h_orig = atlas.RECTS[sprite.id.value]
+
+        uw = w
+        uh = h
+
+        if sprite.flip & Flip.HORI:
+            x += w_orig / 2 - x_off
+            w = -w
+        else:
+            x += x_off - w_orig / 2
+        if sprite.flip & Flip.VERT:
+            y += h_orig / 2 - y_off
+            h = -h
+        else:
+            y += y_off - h_orig / 2
 
         points = [
             (
                 x + w * dx,  # x in screen coordinates
                 y + h * dy,  # y in screen coordinates
                 z,  # z anywhere, but mostly between -1..1
-                (u + dx * w) / tw,  # u of texture between 0..1
-                (v + dy * h) / th,  # v of texture between 0..1
+                (u + dx * uw) / atlas.TEX_WIDTH,  # u of texture between 0..1
+                (v + dy * uh) / atlas.TEX_HEIGHT,  # v of texture between 0..1
             )
             for dx, dy in ((0, 0), (1, 0), (1, 1), (0, 1),)
         ]

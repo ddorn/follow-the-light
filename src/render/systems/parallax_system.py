@@ -1,8 +1,7 @@
 from src import esper
 from src.data import atlas
-from src.data.atlas import Sprite
 from src.logic.components import Pos, Player
-from src.render.components import Parallax
+from src.render.components import Parallax, Sprite
 
 
 class ParallaxSystem(esper.Processor):
@@ -20,9 +19,9 @@ class ParallaxSystem(esper.Processor):
 
             x = (
                 camera.center[0]
-                + (parallax.speed * ppos.x) % atlas.RECTS[sprite.value][6]
+                + (parallax.speed * ppos.x) % atlas.RECTS[sprite.id.value][6]
             )
             if parallax.left:
-                pos.x = x - atlas.RECTS[sprite.value][6]
+                pos.x = x - atlas.RECTS[sprite.id.value][6]
             else:
                 pos.x = x

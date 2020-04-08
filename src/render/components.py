@@ -1,7 +1,9 @@
+import enum
 from dataclasses import dataclass
+from enum import Enum
 from typing import Dict
 
-from src.data.atlas import Anim
+from src.data.atlas import Anim, SpriteID
 
 
 @dataclass
@@ -13,7 +15,7 @@ class Parallax:
 
 
 class Animation:
-    def __init__(self, anim: Anim, frame_duration=15 / 60):
+    def __init__(self, anim: Anim, frame_duration=0.1):
         self.dt = 0.0
         self.frame_duration = frame_duration
         self.index = 0
@@ -33,12 +35,29 @@ class Animation:
     def replace(self, new_anim: Anim, frame_duration=None):
         self.__init__(new_anim, frame_duration or self.frame_duration)
 
+    @property
+    def cur_sprite_id(self):
+        return self.anim.value[self.index]
+
 
 @dataclass
 class StateToAnimation:
     """A mapping from the states of the entity to the corresponding Anim."""
 
     state_to_animation: Dict["State", Anim]
+
+
+class Flip(enum.IntFlag):
+    NONE = 0
+    VERT = 1
+    HORI = 2
+    BOTH = 4
+
+
+@dataclass
+class Sprite:
+    id: SpriteID
+    flip: Flip = Flip.NONE
 
 
 class Camera:

@@ -6,6 +6,7 @@ since the logic is performed by the systems.
 """
 from collections import defaultdict
 from dataclasses import dataclass
+from enum import Enum
 
 
 @dataclass
@@ -72,3 +73,16 @@ class Collisions:
     right: bool = False
     top: bool = False
     bottom: bool = False
+
+
+@dataclass
+class Facing:
+    left: bool = False
+
+    @property
+    def right(self):
+        return not self.left
+
+    @right.setter
+    def right(self, value):
+        self.left = not value

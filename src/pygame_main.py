@@ -3,11 +3,11 @@ from pygame_input import Inputs, Axis, JoyAxis
 
 from src import esper, logic, render
 from src.data import atlas
-from src.data.atlas import Sprite, Anim
-from src.logic.components import Pos, Player, Buffs, Vel, Collisions
+from src.data.atlas import Anim, SpriteID
+from src.logic.components import Pos, Player, Buffs, Vel, Collisions, Facing
 from src.logic.state_machine import GroundedState, JumpState, FallState
 from src.logic.state_machine.base import StateMachine
-from src.render.components import Parallax, Animation, StateToAnimation, Camera
+from src.render.components import Parallax, Animation, StateToAnimation, Camera, Sprite
 
 
 class Window(render.BaseWindow):
@@ -34,24 +34,24 @@ class Window(render.BaseWindow):
 
     def init_background(self):
         layers = [
-            Sprite.BG_FOREST_0_SKY,
-            Sprite.BG_FOREST_1_SHADOWS,
-            Sprite.BG_FOREST_2_DARK_SHADOW,
-            Sprite.BG_FOREST_3_LIGHTS,
-            Sprite.BG_FOREST_4_TREES,
-            Sprite.BG_FOREST_5_BIGGER_TREES,
-            Sprite.BG_FOREST_5_MORE_TREES,
-            Sprite.BG_FOREST_6_LIGHTS,
-            Sprite.BG_FOREST_6_LEAVES,
-            Sprite.BG_FOREST_7_GRASS,
-            Sprite.BG_FOREST_8_DARK_GRASS,
+            SpriteID.BG_FOREST_0_SKY,
+            SpriteID.BG_FOREST_1_SHADOWS,
+            SpriteID.BG_FOREST_2_DARK_SHADOW,
+            SpriteID.BG_FOREST_3_LIGHTS,
+            SpriteID.BG_FOREST_4_TREES,
+            SpriteID.BG_FOREST_5_BIGGER_TREES,
+            SpriteID.BG_FOREST_5_MORE_TREES,
+            SpriteID.BG_FOREST_6_LIGHTS,
+            SpriteID.BG_FOREST_6_LEAVES,
+            SpriteID.BG_FOREST_7_GRASS,
+            SpriteID.BG_FOREST_8_DARK_GRASS,
         ]
 
         for i, sprite in enumerate(layers):
             for side in (True, False):
                 height = atlas.RECTS[sprite.value][-1]
                 self.world.create_entity(
-                    sprite,
+                    Sprite(sprite),
                     Pos(0, height / 2, i / len(layers) - 1),
                     Parallax(side, -i * 0.05),
                 )
@@ -83,10 +83,11 @@ class Window(render.BaseWindow):
             Player(),
             Pos(0, size[1] / 2, 0),
             Vel(0, 0, 0),
-            Animation(Anim.ADVENTURER_ATTACK2, 5 / 60),
+            Animation(Anim.ADVENTURER_ATTACK2, 0.1),
             StateMachine(GroundedState()),
             Buffs(),
             Collisions(),
+            Facing(),
             StateToAnimation(
                 {
                     GroundedState: Anim.ADVENTURER_RUN,
