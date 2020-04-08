@@ -90,3 +90,15 @@ cd follow-the-light
 poetry install
 ./make.sh run
 ```
+
+
+### Credits
+
+- Thanks to [rvos](https://rvros.itch.io/) for the adventurer sprites
+    available for free on [itch.io](https://rvros.itch.io/animated-pixel-hero).
+- Thanks to [edermunizz](https://edermunizz.itch.io/) for 
+    its stunning [forest](https://edermunizz.itch.io/free-pixel-art-forest) parallax background sprites.
+    
+Please check out both of their work,
+whether you need assets or not,
+because they're great.
