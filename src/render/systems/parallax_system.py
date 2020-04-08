@@ -1,5 +1,3 @@
-
-
 from src import esper
 from src.data import atlas
 from src.data.atlas import Sprite

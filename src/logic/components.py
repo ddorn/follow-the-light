@@ -72,5 +72,3 @@ class Collisions:
     right: bool = False
     top: bool = False
     bottom: bool = False
-
-

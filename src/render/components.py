@@ -37,6 +37,7 @@ class Animation:
 @dataclass
 class StateToAnimation:
     """A mapping from the states of the entity to the corresponding Anim."""
+
     state_to_animation: Dict["State", Anim]
 
 

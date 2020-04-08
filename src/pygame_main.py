@@ -95,7 +95,7 @@ class Window(render.BaseWindow):
                     JumpState: Anim.ADVENTURER_JUMP,
                     FallState: Anim.ADVENTURER_FALL,
                 }
-            )
+            ),
         )
 
     def render(self, time: float, frame_time: float):

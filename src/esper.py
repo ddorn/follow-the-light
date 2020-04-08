@@ -48,6 +48,7 @@ version = "1.3"
 C = _TypeVar("C")
 P = _TypeVar("P")
 
+
 class Processor:
     """Base class for all Processors to inherit from.
 
@@ -63,6 +64,7 @@ class Processor:
 
     def process(self, *args, **kwargs):
         raise NotImplementedError
+
 
 class ProcessorBundle(Processor):
     def __init__(self):

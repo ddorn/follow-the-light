@@ -8,7 +8,9 @@ class SelectAnimationSystem(Processor):
         anim: Animation
         sm: StateMachine
         state2anim: StateToAnimation
-        for e, (sm, anim, state2anim) in self.world.get_components(StateMachine, Animation, StateToAnimation):
+        for e, (sm, anim, state2anim) in self.world.get_components(
+            StateMachine, Animation, StateToAnimation
+        ):
             a = state2anim.state_to_animation[sm.state.__class__]
             if anim.anim == a:
                 pass

@@ -12,6 +12,7 @@ from .update_position_system import UpdatePositionSystem
 
 class LogicBundle(ProcessorBundle):
     """An aggregate of systems that define the whole logic."""
+
     def __init__(self):
         super().__init__()
 
