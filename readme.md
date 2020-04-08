@@ -6,6 +6,8 @@ anyone to actually play it.
  
 It is my game oriented code sandbox. 
 
+![screenshot](assets/screenshot.png)
+
 ### Experiments that happened here
 
 I may or may not write in more details about my experiments here 
