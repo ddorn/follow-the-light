@@ -1,5 +1,5 @@
 
-from src.components import Buffs
+from src.logic.components import Buffs
 from src.esper import Processor, World
 
 

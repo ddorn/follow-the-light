@@ -1,5 +1,5 @@
 from src import esper
-from src.systems.state_machine.base import StateMachine
+from src.logic.state_machine.base import StateMachine
 
 
 class StateMachineSystem(esper.Processor):

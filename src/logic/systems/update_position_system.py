@@ -1,5 +1,5 @@
-from src.components import Pos, Vel
-from src.esper import Processor, World
+from src.logic.components import Pos, Vel
+from src.esper import Processor
 
 
 class UpdatePositionSystem(Processor):

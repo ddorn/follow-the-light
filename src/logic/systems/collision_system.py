@@ -1,6 +1,6 @@
 
 from src.esper import Processor, World
-from src.components import Pos, Vel, Collisions
+from src.logic.components import Pos, Collisions
 
 
 class CollisionSystem(Processor):

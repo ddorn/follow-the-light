@@ -1,3 +1,7 @@
+"""
+All the systems needed to render the game with moderngl.
+"""
+
 from src.esper import ProcessorBundle
 from .animation_system import AnimationSystem
 from .draw_sprites_system import DrawSpriteSystem
@@ -7,6 +11,8 @@ from .select_animation_system import SelectAnimationSystem
 
 
 class RenderBundle(ProcessorBundle):
+    """An aggregate of systems to render the game with moderngl."""
+
     def __init__(self, window):
         super().__init__()
 

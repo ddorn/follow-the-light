@@ -1,9 +1,10 @@
 
 
 from src import esper
-from src.graphism import atlas
-from src.graphism.atlas import Sprite
-from src.components import Parallax, Pos
+from src.data import atlas
+from src.data.atlas import Sprite
+from src.logic.components import Pos
+from src.render.components import Parallax
 
 
 class ParallaxSystem(esper.Processor):

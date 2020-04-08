@@ -1,7 +1,6 @@
-
-from src.components import Animation
+from src.render.components import Animation
 from src.esper import Processor, World
-from src.graphism.atlas import Sprite
+from src.data.atlas import Sprite
 
 
 class AnimationSystem(Processor):

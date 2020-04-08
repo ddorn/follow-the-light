@@ -1,10 +1,10 @@
 from typing import Optional
 
 
-from src.components import Buffs, Vel, Collisions
+from src.logic.components import Buffs, Vel, Collisions
 from src.esper import World
-from src.locals.constants import *
-from src.systems.state_machine.base import State
+from src.logic.constants import *
+from src.logic.state_machine.base import State
 
 
 __all__ = ["GroundedState", "FallState", "JumpState"]

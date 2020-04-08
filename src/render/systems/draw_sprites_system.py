@@ -4,9 +4,10 @@ import moderngl
 import numpy as np
 
 from src import esper
-from src.graphism import atlas, shaders
-from src.graphism.atlas import Sprite
-from src.components import Pos
+from src.data import atlas
+from src.render import shaders
+from src.data.atlas import Sprite
+from src.logic.components import Pos
 
 
 BUFFER_SIZE = 100

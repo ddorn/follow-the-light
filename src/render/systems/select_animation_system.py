@@ -1,7 +1,6 @@
-
-from src.components import Animation, StateToAnimation
+from src.render.components import Animation, StateToAnimation
 from src.esper import Processor
-from src.systems.state_machine.base import StateMachine
+from src.logic.state_machine.base import StateMachine
 
 
 class SelectAnimationSystem(Processor):

@@ -5,7 +5,7 @@ import moderngl
 import pygame
 from PIL import Image
 
-from src.locals.paths import ASSETS_DIR
+from src.paths import ASSETS_DIR
 
 
 class BaseWindow:

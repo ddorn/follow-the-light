@@ -1,4 +1,4 @@
-from src.ui.pygame_main import Window
+from src.pygame_main import Window
 
 
 if __name__ == "__main__":

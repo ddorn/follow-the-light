@@ -1,8 +1,8 @@
 from pygame_input import Inputs
 
-from src.components import Buffs, Player
+from src.logic.components import Buffs, Player
 from src.esper import Processor, World
-from src.locals.constants import *
+from src.logic.constants import *
 
 
 class InputSystem(Processor):

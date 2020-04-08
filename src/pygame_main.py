@@ -1,17 +1,16 @@
 import pygame
 from pygame_input import Inputs, Axis, JoyAxis
 
-from src import systems
-from src.graphism.atlas import Sprite, Anim
+from src import esper, logic, render
 from src.camera import Camera
-from src.components import Pos, Parallax, Player, Animation, Buffs, Vel, Collisions, StateToAnimation
-from src.systems.state_machine.base import StateMachine
-from src.systems.state_machine.movement_machine import GroundedState, JumpState, FallState
-from src.ui import BaseWindow
-from src import esper
+from src.data.atlas import Sprite, Anim
+from src.logic.components import Pos, Player, Buffs, Vel, Collisions
+from src.logic.state_machine import GroundedState, JumpState, FallState
+from src.logic.state_machine.base import StateMachine
+from src.render.components import Parallax, Animation, StateToAnimation
 
 
-class Window(BaseWindow):
+class Window(render.BaseWindow):
     # window_size = (384, 216)
 
     def __init__(self, **kwargs):
@@ -20,8 +19,8 @@ class Window(BaseWindow):
         # Set up the world for all our entities
         self.world = esper.World()
         # High numbers are processed first
-        self.world.add_processor(systems.UpdateBundle(), 10)
-        self.world.add_processor(systems.RenderBundle(self), 0)
+        self.world.add_processor(logic.LogicBundle(), 10)
+        self.world.add_processor(render.RenderBundle(self), 0)
 
         self.init_background()
         self.camera = self.init_camera()

@@ -2,7 +2,7 @@ import os
 
 import moderngl
 
-from src.locals.paths import SHADERS_DIR
+from src.paths import SHADERS_DIR
 
 
 def load_file(path: str):
