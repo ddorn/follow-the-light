@@ -11,4 +11,4 @@ class CollisionSystem(Processor):
 
     def process(self, *args, frame_time, **kwargs):
         for e, (pos, hit) in self.world.get_components(Pos, Collisions):
-            hit.bottom = pos.y < 64
+            hit.bottom = pos.y < 82
