@@ -1,7 +1,7 @@
 import enum
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict
+from typing import Dict, Tuple
 
 from src.data.atlas import Anim, SpriteID
 
@@ -30,14 +30,14 @@ class Animation:
         return False
 
     def advance(self, n=1):
-        self.index = (self.index + n) % len(self.anim.value)
+        self.index = (self.index + n) % len(self.anim)
 
     def replace(self, new_anim: Anim, frame_duration=None):
         self.__init__(new_anim, frame_duration or self.frame_duration)
 
     @property
     def cur_sprite_id(self):
-        return self.anim.value[self.index]
+        return self.anim[self.index]
 
 
 @dataclass
