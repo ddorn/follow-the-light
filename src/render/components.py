@@ -41,7 +41,6 @@ class StateToAnimation:
     state_to_animation: Dict["State", Anim]
 
 
-@dataclass
 class Camera:
     """
     The game's 2D camera. The coordinate system has the same axis
@@ -51,12 +50,44 @@ class Camera:
     the vertex shader.
     """
 
-    center: (float, float)
-    size: (float, float)
+    center: [float, float]
+    size: [float, float]
+
+    def __init__(self, center, size):
+        self.center = list(center)
+        self.size = list(size)
 
     def as_vec4(self):
-        return self.center + self.size
+        return (*self.center, *self.size)
 
     @property
     def left(self):
         return self.center[0] - self.size[0] / 2
+
+    @left.setter
+    def left(self, value):
+        self.center[0] = value + self.size[0] / 2
+
+    @property
+    def right(self):
+        return self.center[0] + self.size[0] / 2
+
+    @right.setter
+    def right(self, value):
+        self.center[0] = value - self.size[0] / 2
+
+    @property
+    def top(self):
+        return self.center[1] + self.size[1] / 2
+
+    @top.setter
+    def top(self, value):
+        self.center[1] = value - self.size[1] / 2
+
+    @property
+    def bottom(self):
+        return self.center[1] - self.size[1] / 2
+
+    @bottom.setter
+    def bottom(self, value):
+        self.center[1] = value + self.size[1] / 2

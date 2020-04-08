@@ -71,11 +71,11 @@ class DrawSpriteSystem(esper.Processor):
 
     def points(self, xyz, sprite, tex_size):
         x, y, z = xyz
-        u, v, w, h, dx, dy, _, _ = sprite
+        u, v, w, h, x_off, y_off, w_orig, h_orig = sprite
         tw, th = tex_size
 
-        x += dx
-        y += dy
+        x += x_off - w_orig / 2
+        y += y_off - h_orig / 2
 
         points = [
             (
