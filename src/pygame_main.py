@@ -2,6 +2,7 @@ import pygame
 from pygame_input import Inputs, Axis, JoyAxis
 
 from src import esper, logic, render
+from src.data import atlas
 from src.data.atlas import Sprite, Anim
 from src.logic.components import Pos, Player, Buffs, Vel, Collisions
 from src.logic.state_machine import GroundedState, JumpState, FallState
@@ -21,9 +22,9 @@ class Window(render.BaseWindow):
         self.world.add_processor(logic.LogicBundle(), 10)
         self.world.add_processor(render.RenderBundle(self), 0)
 
-        self.init_background()
         self.camera = self.init_camera()
         self.inputs = self.init_inputs()
+        self.init_background()
         self.init_player()
 
     def handle_events(self, events):
@@ -48,14 +49,11 @@ class Window(render.BaseWindow):
 
         for i, sprite in enumerate(layers):
             for side in (True, False):
+                height = atlas.RECTS[sprite.value][-1]
                 self.world.create_entity(
-                    sprite, Pos(0, 0, i / len(layers) - 1), Parallax(side, -i * 5)
-                )
-
-        for i, sprite in enumerate(layers):
-            for side in (True, False):
-                self.world.create_entity(
-                    sprite, Pos(0, 0, i / len(layers) - 1), Parallax(side, -i * 5)
+                    sprite,
+                    Pos(0, height / 2, i / len(layers) - 1),
+                    Parallax(side, -i * 0.05),
                 )
 
     def init_camera(self):
