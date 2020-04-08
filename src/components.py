@@ -6,6 +6,7 @@ since the logic is performed by the systems.
 """
 from collections import defaultdict
 from dataclasses import dataclass
+from typing import Dict
 
 from src.graphism.atlas import Anim
 
@@ -78,6 +79,8 @@ class Animation:
     def advance(self, n=1):
         self.index = (self.index + n) % len(self.anim.value)
 
+    def replace(self, new_anim: Anim, frame_duration=None):
+        self.__init__(new_anim, frame_duration or self.frame_duration)
 
 class Buffs(defaultdict):
     """
@@ -101,3 +104,9 @@ class Collisions:
     right: bool = False
     top: bool = False
     bottom: bool = False
+
+
+@dataclass
+class StateToAnimation:
+    """A mapping from the states of the entity to the corresponding Anim."""
+    state_to_animation: Dict["State", Anim]

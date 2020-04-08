@@ -4,9 +4,9 @@ from pygame_input import Inputs, Axis, JoyAxis
 from src import systems
 from src.graphism.atlas import Sprite, Anim
 from src.camera import Camera
-from src.components import Pos, Parallax, Player, Animation, Buffs, Vel, Collisions
+from src.components import Pos, Parallax, Player, Animation, Buffs, Vel, Collisions, StateToAnimation
 from src.systems.state_machine.base import StateMachine
-from src.systems.state_machine.movement_machine import GroundedState
+from src.systems.state_machine.movement_machine import GroundedState, JumpState, FallState
 from src.ui import BaseWindow
 from src import esper
 
@@ -91,6 +91,13 @@ class Window(BaseWindow):
             StateMachine(GroundedState()),
             Buffs(),
             Collisions(),
+            StateToAnimation(
+                {
+                    GroundedState: Anim.ADVENTURER_RUN,
+                    JumpState: Anim.ADVENTURER_JUMP,
+                    FallState: Anim.ADVENTURER_FALL,
+                }
+            )
         )
 
     def render(self, time: float, frame_time: float):
