@@ -162,7 +162,7 @@ Each tuple cooresponds to height numbers, in order:
 """
 
 
-class SpriteID(enum.Enum):
+class SpriteID:
     ENUM
     
     

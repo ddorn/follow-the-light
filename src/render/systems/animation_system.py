@@ -14,5 +14,4 @@ class AnimationSystem(Processor):
         for e, anim in self.world.get_component(Animation):
             if anim.update(dt):
                 anim.advance(1)
-                id = anim.cur_sprite_id
-                self.world.add_component(e, Sprite(SpriteID(id)))
+                self.world.add_component(e, Sprite(anim.cur_sprite_id))

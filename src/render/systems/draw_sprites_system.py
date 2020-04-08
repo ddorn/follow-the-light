@@ -71,7 +71,7 @@ class DrawSpriteSystem(esper.Processor):
     def points(self, xyz, sprite: Sprite):
 
         x, y, z = xyz
-        u, v, w, h, x_off, y_off, w_orig, h_orig = atlas.RECTS[sprite.id.value]
+        u, v, w, h, x_off, y_off, w_orig, h_orig = atlas.RECTS[sprite.id]
 
         uw = w
         uh = h

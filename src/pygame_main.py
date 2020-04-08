@@ -49,7 +49,7 @@ class Window(render.BaseWindow):
 
         for i, sprite in enumerate(layers):
             for side in (True, False):
-                height = atlas.RECTS[sprite.value][-1]
+                height = atlas.RECTS[sprite][-1]
                 self.world.create_entity(
                     Sprite(sprite),
                     Pos(0, height / 2, i / len(layers) - 1),

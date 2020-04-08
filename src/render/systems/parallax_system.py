@@ -17,11 +17,8 @@ class ParallaxSystem(esper.Processor):
             Parallax, Sprite, Pos
         ):
 
-            x = (
-                camera.center[0]
-                + (parallax.speed * ppos.x) % atlas.RECTS[sprite.id.value][6]
-            )
+            x = camera.center[0] + (parallax.speed * ppos.x) % atlas.RECTS[sprite.id][6]
             if parallax.left:
-                pos.x = x - atlas.RECTS[sprite.id.value][6]
+                pos.x = x - atlas.RECTS[sprite.id][6]
             else:
                 pos.x = x
